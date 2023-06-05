@@ -13,7 +13,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+		<html
+			suppressHydrationWarning
+			lang="en"
+			className={`${inter.variable} ${poppins.variable}`}>
 			<body className={inter.className}>
 				<Providers>{children}</Providers>
 			</body>

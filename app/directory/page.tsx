@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import supabase from "@/utils/supabase";
+import supabase from "@/util/supabase";
 
 export default async function Page() {
 	const { data: businesses } = await supabase.from("business").select();
