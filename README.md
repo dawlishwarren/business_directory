@@ -1,34 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Business Directory App
 
-## Getting Started
+## Visit
+See the progress here: https://business-directory-dawlishwarren.vercel.app/
+## The Project
+The idea is to create a local business directory app for small communities.
 
-First, run the development server:
+The app would be handed over to an Authenticated User who would act as the data manager for the business directory.
+For this reason, a simple and robust backend and a prominent focus on web accessibility are the priorities of this project.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## The Tech
+- Supabase, given its all-in-one DB, storage and Auth solution, it's a perfect fit for the needs of the project.
+- NextJS, chosen because it plays nice with Supabase, and the latest additions to Next 13 allow for easy routing and fast page loads.
+- TypeScript, to help minimise errors in development.
+- eslint
+- Cypress, to ensure robustness, each UI component that a user (authenticated or otherwise) will be rigorously tested.
+- axe-core, to scan for any accessibility errors in development.
+- next-themes, a solution for top level colour theme changing in NextJS apps.
+- formik, a form library for react.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
