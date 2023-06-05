@@ -1,15 +1,8 @@
 import { Fragment } from "react";
+import supabase from "@/utils/supabase";
 
-export default function Page() {
-	return (
-		<Fragment>
-			<h1>Hello, Directory Page!</h1>
-			<div className="card">
-				<h3>Card</h3>
-				<h5 className="secondary">Secondary</h5>
-				<p className="disabled">Disabled</p>
-				<div className="error">ERROR</div>
-			</div>
-		</Fragment>
-	);
+export default async function Page() {
+	const { data: businesses } = await supabase.from("business").select();
+
+	return <pre>{JSON.stringify(businesses, null, 2)}</pre>;
 }
