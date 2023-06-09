@@ -42,7 +42,7 @@
 	--on-error-rgba: 253, 253, 253, 1;
 }
 /* Dark Mode Colour Variables */
-[data-theme="dark"] {
+[data-theme='dark'] {
 	/* Colors */
 	--primary-rgba: 246, 132, 33, 0.87;
 	--background-rgba: 13, 13, 13, 1;
@@ -117,7 +117,7 @@ h6,
 	font-family: var(--font-poppins);
 }
 h1 {
-	font-size: 93px;
+	font-size: 73px;
 	font-weight: 850;
 	letter-spacing: -1.5px;
 }
