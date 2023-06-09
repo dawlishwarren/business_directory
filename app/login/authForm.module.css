@@ -1,0 +1,24 @@
+.label {
+	color: rgba(var(--on-surface-rgba));
+	font-size: 24px;
+}
+.input {
+	margin-top: 10px;
+	width: 100%;
+	padding: 10px;
+	border-radius: var(--border-radius);
+}
+.container {
+	margin: 0;
+	padding-top: 50px;
+	color: rgba(var(--surface-rgba));
+}
+.container > * {
+	padding-top: 1rem;
+}
+.message {
+	width: 100%;
+	padding: 1rem;
+	background: rgba(var(--error-rgba));
+	color: rgba(var(--on-error-rgba));
+}
