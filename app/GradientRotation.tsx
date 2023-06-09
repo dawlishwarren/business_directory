@@ -17,5 +17,9 @@ export default function GradientRotation({
 		e.currentTarget.style.setProperty('--gradient-rotation', `${radians}rad`);
 	}
 
-	return <div onMouseMove={(e) => handleMouseMove(e)}>{children}</div>;
+	return (
+		<div style={{ zIndex: -1 }} onMouseMove={(e) => handleMouseMove(e)}>
+			{children}
+		</div>
+	);
 }

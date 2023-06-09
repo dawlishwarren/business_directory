@@ -116,11 +116,13 @@ h6,
 .subtitle_2 {
 	font-family: var(--font-poppins);
 }
-h1 {
+h1,
+h1 > strong {
 	font-size: 73px;
 	font-weight: 850;
 	letter-spacing: -1.5px;
 }
+
 h2 {
 	font-size: 58px;
 	font-weight: light;
@@ -213,3 +215,12 @@ a {
 	}
 }
 /***End of Global Resets***/
+
+dialog {
+	width: 400px;
+	aspect-ratio: 1.618/1;
+	margin: auto;
+}
+dialog::backdrop {
+	background-color: rgba(0, 0, 0, 0.7);
+}
