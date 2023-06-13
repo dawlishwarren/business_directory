@@ -3,17 +3,17 @@
 import Link from 'next/link';
 import styles from './header.module.css';
 import { usePathname } from 'next/navigation';
-import ThemeChanger from './ThemeChanger';
+import ThemeChanger from './ThemeChanger/ThemeChanger';
 
 export default function Header() {
 	const pathname = usePathname();
 	console.log(pathname);
 	return (
-		<header className={styles.header}>
+		<div className={styles.header}>
 			<nav className={styles.nav}>
-				<Link href='/'>
+				<Link tabIndex={0} href='/'>
 					<h5 className={pathname == '/' ? styles.disabled : styles.nav_link}>
-						Homepage
+						HomePage
 					</h5>
 				</Link>
 				<Link href='/directory'>
@@ -24,11 +24,6 @@ export default function Header() {
 						Directory
 					</h5>
 				</Link>
-			</nav>
-			<div className={styles.theme_changer}>
-				<ThemeChanger />
-			</div>
-			<div className={styles.login}>
 				<Link href='/login'>
 					<h5
 						className={
@@ -37,7 +32,10 @@ export default function Header() {
 						Login
 					</h5>
 				</Link>
+			</nav>
+			<div className={styles.theme_changer}>
+				<ThemeChanger />
 			</div>
-		</header>
+		</div>
 	);
 }

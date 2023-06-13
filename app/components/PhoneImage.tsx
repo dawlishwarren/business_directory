@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import iPhone from '../public/iPhone 14 Pro Max - Space Black - Portrait.png';
+import iPhone from '../../public/iPhone 14 Pro Max - Space Black - Portrait.png';
 
 export default function PhoneImage() {
 	return (
 		<Image
+			id='phone'
 			src={iPhone}
 			alt='image of iPhone 14'
 			priority

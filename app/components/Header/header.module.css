@@ -44,20 +44,39 @@ nav.nav,
 .login {
 	width: 100%;
 }
-.login {
-	display: flex;
-	justify-content: right;
-	align-items: center;
-}
 
-.theme_changer > .svg_container {
+.theme_changer {
 	display: flex;
 	position: relative;
 	min-height: 100%;
 	align-items: center;
 	justify-content: center;
+	background: none;
+	border: none;
 }
-.theme_changer > .svg_container > img:hover {
+.theme_changer:focus {
+	border: 1px solid black;
+}
+.theme_changer > img:hover,
+.theme_changer:focus > img {
 	transform: rotate(-45deg);
+}
+.theme_changer > img {
 	transition: all 0.6s ease-in-out;
+}
+
+.theme_changer > dialog > .dialog_content {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	padding: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.theme_changer > dialog > .dialog_content > .options {
+	display: flex;
+}
+.theme_changer > dialog > .dialog_content > button {
+	align-self: flex-end;
 }

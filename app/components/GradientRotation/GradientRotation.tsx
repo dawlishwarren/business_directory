@@ -8,7 +8,9 @@ export default function GradientRotation({
 	children: React.ReactNode;
 }) {
 	function handleMouseMove(e: MouseEvent<HTMLDivElement>) {
-		const rect = e.currentTarget.getBoundingClientRect();
+		const rect = (
+			document.getElementById('phone') as HTMLImageElement
+		).getBoundingClientRect();
 		const x = (rect.left + rect.right) / 2;
 		const y = (rect.top + rect.bottom) / 2;
 
@@ -17,9 +19,5 @@ export default function GradientRotation({
 		e.currentTarget.style.setProperty('--gradient-rotation', `${radians}rad`);
 	}
 
-	return (
-		<div style={{ zIndex: -1 }} onMouseMove={(e) => handleMouseMove(e)}>
-			{children}
-		</div>
-	);
+	return <div onMouseMove={(e) => handleMouseMove(e)}>{children}</div>;
 }

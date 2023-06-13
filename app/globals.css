@@ -17,11 +17,11 @@
     on error - high - medium - disabled
      */
 	/* Colors */
-	--primary-rgba: 250, 168, 45, 0.98;
-	--primary-variant-rgba: 253, 209, 33;
-	--secondary-rgba: 33, 253, 103, 1;
+	--primary-rgba: 180, 117, 201, 1;
+	--primary-variant-rgba: 134, 114, 214, 1;
+	--secondary-rgba: 149, 82, 171, 1;
 	--tertiary-rgba: 0, 72, 129, 51;
-	--background-rgba: 215, 221, 224, 0.88;
+	--background-rgba: 245, 252, 251, 0.88;
 	--surface-rgba: 215, 221, 224, 1;
 	--error-rgba: 250, 36, 12, 0.94;
 	/* On Colors */
@@ -44,15 +44,16 @@
 /* Dark Mode Colour Variables */
 [data-theme='dark'] {
 	/* Colors */
-	--primary-rgba: 246, 132, 33, 0.87;
+	--primary-rgba: 180, 117, 201, 1;
+	--primary-variant-rgba: 134, 114, 214, 1;
 	--background-rgba: 13, 13, 13, 1;
 	--surface-rgba: 33, 35, 38, 1;
 	--error-rgba: 250, 36, 12, 0.94;
 
 	/* On Colors */
-	--on-primary-rgba-high: 23, 23, 23, 0.87;
-	--on-primary-rgba-medium: 23, 23, 23, 0.6;
-	--on-primary-rgba-disabled: 23, 23, 23, 0.38;
+	--on-primary-rgba-high: 29, 30, 31, 0.87;
+	--on-primary-rgba-medium: 29, 30, 31, 0.6;
+	--on-primary-rgba-disabled: 29, 30, 31, 0.38;
 	--on-background-rgba-high: 255, 255, 255, 0.87;
 	--on-background-rgba-medium: 255, 255, 255, 0.6;
 	--on-background-rgba-disabled: 255, 255, 255, 0.38;
@@ -179,11 +180,25 @@ body,
 .button {
 	letter-spacing: 1.25px;
 	text-transform: uppercase;
-	background-color: rgba(var(--background-rgba));
 	padding: 25px;
 	margin-block: 50px;
 	width: 100%;
 	border-radius: var(--border-radius);
+	border: 2px solid transparent;
+	box-shadow: 0 -3px 5px 2px rgba(var(--surface-rgba));
+	background-color: rgba(var(--background-rgba));
+	background-image: linear-gradient(
+			rgba(var(--background-rgba)),
+			rgba(var(--background-rgba))
+		),
+		linear-gradient(
+			calc(-15deg),
+			rgba(var(--primary-rgba)) 0,
+			rgba(var(--primary-variant-rgba)) 20%,
+			rgba(121, 40, 202, 0) 80%
+		);
+	background-origin: border-box;
+	background-clip: padding-box, border-box;
 }
 
 /***End of Typography***/
@@ -220,7 +235,9 @@ dialog {
 	width: 400px;
 	aspect-ratio: 1.618/1;
 	margin: auto;
+	overflow: hidden;
 }
+
 dialog::backdrop {
 	background-color: rgba(0, 0, 0, 0.7);
 }
