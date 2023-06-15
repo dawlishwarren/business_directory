@@ -3,110 +3,75 @@
 	--border-radius: 25px;
 	--gradient-rotation: -0.3rad;
 	/***Colour Variables***/
-	/*  primary
-    primary variant
-    secondary
-    secondary variant
-    background
-    surface
-    error
-    on primary - high - medium - disabled
-    on secondary - high - medium - disabled
-    on background - high - medium - disabled
-    on surface - high - medium - disabled
-    on error - high - medium - disabled
-     */
 	/* Colors */
-	--primary-rgba: 180, 117, 201, 1;
-	--primary-variant-rgba: 134, 114, 214, 1;
-	--secondary-rgba: 149, 82, 171, 1;
-	--tertiary-rgba: 0, 72, 129, 51;
-	--background-rgba: 245, 252, 251, 0.88;
-	--surface-rgba: 215, 221, 224, 1;
-	--error-rgba: 250, 36, 12, 0.94;
+	--primary: rgba(180, 117, 201);
+	--primary-variant: rgba(134, 114, 214);
+	--secondary: rgba(149, 82, 171);
+	--tertiary: rgba(72, 129, 51);
+	--background: rgba(245, 252, 251, 0.88);
+	--surface: rgba(215, 221, 224);
+	--error: rgba(250, 36, 12, 0.94);
 	/* On Colors */
-	--on-primary-rgba: 0, 0, 0, 1;
-	--on-primary-rgba-high: 0, 0, 0, 1;
-	--on-primary-rgba-medium: 0, 0, 0, 1;
-	--on-primary-rgba-disabled: 0, 0, 0, 1;
-	--on-primary-variant-rgba: 4, 4, 4, 1;
-	--on-secondary-rgba: 0, 0, 0, 1;
-	--on-tertiary-rgba: 251, 251, 251, 99;
-	--on-background-rgba-high: 13, 13, 13, 0.87;
-	--on-background-rgba-medium: 13, 13, 13, 0.6;
-	--on-background-rgba-disabled: 255, 255, 255, 0.38;
-	--on-surface-rgba: 13, 13, 13, 1;
-	--on-surface-rgba-high: 255, 255, 255, 0.87;
-	--on-surface-rgba-medium: 255, 255, 255, 0.6;
-	--on-surface-rgba-disabled: 255, 255, 255, 0.38;
-	--on-error-rgba: 253, 253, 253, 1;
+	--on-primary: rgba(0, 0, 0);
+	--on-primary-high: rgba(0, 0, 0);
+	--on-primary-medium: rgba(0, 0, 0);
+	--on-primary-disabled: rgba(0, 0, 0);
+	--on-primary-variant: rgba(4, 4, 4);
+	--on-secondary: rgba(0, 0, 0, 1);
+	--on-tertiary: rgba(251, 251, 251, 99);
+	--on-background-high: rgba(13, 13, 13, 0.87);
+	--on-background-medium: rgba(13, 13, 13, 0.6);
+	--on-background-disabled: rgba(255, 255, 255, 0.38);
+	--on-surface: rgba(13, 13, 13, 1);
+	--on-surface-high: rgba(255, 255, 255, 0.87);
+	--on-surface-medium: rgba(255, 255, 255, 0.6);
+	--on-surface-disabled: rgba(255, 255, 255, 0.38);
+	--on-error: rgba(253, 253, 253, 1);
 }
 /* Dark Mode Colour Variables */
 [data-theme='dark'] {
 	/* Colors */
-	--primary-rgba: 180, 117, 201, 1;
-	--primary-variant-rgba: 134, 114, 214, 1;
-	--background-rgba: 13, 13, 13, 1;
-	--surface-rgba: 33, 35, 38, 1;
-	--error-rgba: 250, 36, 12, 0.94;
+	--primary: rgba(180, 117, 201, 1);
+	--primary-variant: rgba(134, 114, 214, 1);
+	--background: rgba(13, 13, 13, 1);
+	--surface: rgba(33, 35, 38, 1);
+	--error: rgba(250, 36, 12, 0.94);
 
 	/* On Colors */
-	--on-primary-rgba-high: 29, 30, 31, 0.87;
-	--on-primary-rgba-medium: 29, 30, 31, 0.6;
-	--on-primary-rgba-disabled: 29, 30, 31, 0.38;
-	--on-background-rgba-high: 255, 255, 255, 0.87;
-	--on-background-rgba-medium: 255, 255, 255, 0.6;
-	--on-background-rgba-disabled: 255, 255, 255, 0.38;
-	--on-surface-rgba: 13, 13, 13, 1;
-	--on-surface-rgba-high: 255, 255, 255, 0.87;
-	--on-surface-rgba-medium: 255, 255, 255, 0.6;
-	--on-surface-rgba-disabled: 255, 255, 255, 0.38;
+	--on-primary-high: rgba(29, 30, 31, 0.87);
+	--on-primary-medium: rgba(29, 30, 31, 0.6);
+	--on-primary-disabled: rgba(29, 30, 31, 0.38);
+	--on-background-high: rgba(255, 255, 255, 0.87);
+	--on-background-medium: rgba(255, 255, 255, 0.6);
+	--on-background-disabled: rgba(255, 255, 255, 0.38);
+	--on-surface: rgba(13, 13, 13, 1);
+	--on-surface-high: rgba(255, 255, 255, 0.87);
+	--on-surface-medium: rgba(255, 255, 255, 0.6);
+	--on-surface-disabled: rgba(255, 255, 255, 0.38);
 }
 /* Variables Applied Globally */
 body {
-	color: rgba(var(--on-background-rgba-high));
-	background: rgba(var(--background-rgba));
-	.error {
-		background: rgba(var(--error-rgba));
-		color: rgba(var(--on-error-rgba));
-	}
+	color: var(--on-background-high);
+	background: var(--background);
+}
+body.error {
+	background: var(--error);
+	color: var(--on-error);
 }
 /***End of Colour Variables***/
-.card {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	width: 480px;
-	height: 200px;
-	/* background: rgba(var(--surface-rgba)); */
-	color: rgba(var(--on-surface-rgba-high));
-	filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.12));
-	border: 1.6px solid transparent;
-	box-shadow: inset 0 1px 1px -1px rgba(var(--surface-rgba));
-	border-radius: var(--border-radius);
-	background-image: linear-gradient(
-			rgba(var(--surface-rgba)),
-			rgba(var(--surface-rgba))
-		),
-		linear-gradient(
-			calc(var(--gradient-rotation)),
-			rgba(var(--primary-rgba)) 0,
-			rgba(var(--primary-variant-rgba)) 20%,
-			rgba(var(--secondary-rgba)) 40%,
-			rgba(var(--surface-rgba)) 60%
-		);
 
-	background-origin: border-box;
-	background-clip: padding-box, border-box;
-}
-.secondary {
-	color: rgba(var(--on-surface-rgba-medium));
-}
-.disabled {
-	color: rgba(var(--on-surface-rgba-disabled));
-}
 /***Typography***/
+/* In the type scale, headlines span from a range of 1 through 6. Headlines are the largest text on the screen, reserved for short, important text or numerals.
+
+For headlines, you can choose an expressive font, such as a display, handwritten, or script style. These unconventional font designs have details and intricacy that help attract the eye. */
+/* Serif or sans serif typefaces work well for headlines, especially at smaller sizes. */
+
+/* Subtitles are smaller than headlines. They are typically reserved for medium-emphasis text that is shorter in length. Serif or sans serif typefaces work well for subtitles. */
+/* Body text comes in ranges 1-2, and it’s typically used for long-form writing as it works well for small text sizes. For longer sections of text, a serif or sans serif typeface is recommended. */
+/* Caption and overline text (text with a line above it) are the smallest font sizes. They are used sparingly to annotate imagery or to introduce a headline. */
+/* Button text is a call to action used by different types of buttons (such as text, outlined and contained buttons) and in tabs, dialogs, and cards.
+
+Button text is typically an all caps sans serif. */
 h1,
 h2,
 h3,
@@ -119,7 +84,7 @@ h6,
 }
 h1,
 h1 > strong {
-	font-size: 73px;
+	font-size: max(48px, min(5vw, 73px));
 	font-weight: 850;
 	letter-spacing: -1.5px;
 }
@@ -140,7 +105,7 @@ h4 {
 	letter-spacing: 0.25px;
 }
 h5 {
-	font-size: 23px;
+	font-size: max(16px, min(5vw, 23px));
 	letter-spacing: 0px;
 }
 h6 {
@@ -155,7 +120,7 @@ h6 {
 }
 .subtitle_2 {
 	font-weight: 500;
-	size: 14px;
+	font-size: 14px;
 	letter-spacing: 0.1px;
 }
 body,
@@ -185,17 +150,14 @@ body,
 	width: 100%;
 	border-radius: var(--border-radius);
 	border: 2px solid transparent;
-	box-shadow: 0 -3px 5px 2px rgba(var(--surface-rgba));
-	background-color: rgba(var(--background-rgba));
-	background-image: linear-gradient(
-			rgba(var(--background-rgba)),
-			rgba(var(--background-rgba))
-		),
+	box-shadow: 0 -3px 5px 2px var(--surface);
+	background-color: var(--background);
+	background-image: linear-gradient(var(--background), var(--background)),
 		linear-gradient(
 			calc(-15deg),
-			rgba(var(--primary-rgba)) 0,
-			rgba(var(--primary-variant-rgba)) 20%,
-			rgba(121, 40, 202, 0) 80%
+			var(--primary) 0,
+			var(--primary-variant) 20%,
+			rgba(121, 40, 20, 0) 80%
 		);
 	background-origin: border-box;
 	background-clip: padding-box, border-box;
@@ -213,7 +175,6 @@ body,
 html,
 body {
 	max-width: 100vw;
-	overflow-x: hidden;
 }
 
 a {
@@ -236,8 +197,40 @@ dialog {
 	aspect-ratio: 1.618/1;
 	margin: auto;
 	overflow: hidden;
+	border-radius: var(--border-radius);
 }
 
 dialog::backdrop {
 	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 480px;
+	height: 200px;
+	color: var(--on-surface-high);
+	filter: drop-shadow(0 8px 30px 0, 0, 0, 0.12);
+	border: 1.6px solid transparent;
+	box-shadow: inset 0 1px 1px -1px var(--surface);
+	border-radius: var(--border-radius);
+	background-image: linear-gradient(var(--surface), var(--surface)),
+		linear-gradient(
+			calc(var(--gradient-rotation)),
+			var(--primary) 0,
+			var(--primary-variant) 20%,
+			var(--secondary) 40%,
+			var(--surface) 60%
+		);
+
+	background-origin: border-box;
+	background-clip: padding-box, border-box;
+}
+.secondary {
+	color: var(--on-surface-medium);
+}
+.disabled {
+	color: var(--on-surface-disabled);
 }

@@ -1,25 +1,27 @@
-.main {
+/**** HERO SECTION ****/
+.hero_section {
 	max-width: 60rem;
 	max-height: 924px;
 	display: grid;
 	grid-template-columns: 50% 50%;
 	grid-template-rows: 33% 67%;
 	overflow: hidden;
+	padding-bottom: 10vh;
 }
-.header_container {
+.heading_container {
 	grid-column: 1 / span 2;
 	grid-row: 1 / span 1;
 }
-.header_container > h1.header {
+.heading_container > h1.heading {
 	letter-spacing: -3px;
 	text-align: center;
 }
-.header_container > h1.header > strong {
+.heading_container > h1.heading > strong {
 	/* background: linear-gradient(to right, #0a42c4 7.45%, #0aa5c4 94.12%); */
 	background: linear-gradient(
 		to right,
-		rgba(var(--primary-rgba)) 7.45%,
-		rgba(var(--primary-variant-rgba)) 94.12%
+		var(--primary) 7.45%,
+		var(--primary-variant) 94.12%
 	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -27,7 +29,7 @@
 	text-fill-color: transparent;
 }
 .buttons_container {
-	grid-column: 1 / span 1;
+	grid-column: 1 / span 2;
 	grid-row: 2 / span 1;
 	display: flex;
 	flex-direction: column;
@@ -36,12 +38,7 @@
 	padding: 4rem;
 }
 .image_container {
-	grid-column: 2 / span 1;
-	grid-row: 2 / span 1;
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	display: none;
 }
 .image_container > img {
 	z-index: 2;
@@ -55,15 +52,15 @@
 	border-radius: 50%;
 	background: conic-gradient(
 		from var(--gradient-rotation),
-		rgba(var(--primary-variant-rgba)) 0%,
-		rgba(var(--secondary-rgba)) 62.5%,
-		rgba(var(--primary-rgba)) 75%,
-		rgba(var(--secondary-rgba)) 82.5%,
-		rgba(var(--primary-variant-rgba)) 100%
+		var(--primary-variant) 0%,
+		var(--secondary) 62.5%,
+		var(--primary) 75%,
+		var(--secondary) 82.5%,
+		var(--primary-variant) 100%
 	);
 	background-size: 100% 100%;
-	box-shadow: -1px -2px 5px 2px rgba(var(--surface-rgba)),
-		inset 0 0 5px 3px rgba(var(--background-rgba));
+	box-shadow: -1px -2px 5px 2px var(--surface),
+		inset 0 0 5px 3px var(--background);
 }
 .image_container::after {
 	content: '';
@@ -74,4 +71,98 @@
 	border-radius: var(--border-radius);
 	background-color: white;
 	/* background-image: url('/public/site-scroll.webp'); */
+}
+
+@media (min-width: 480px) {
+	.buttons_container {
+		grid-column: 1 / span 1;
+	}
+	.image_container {
+		grid-column: 2 / span 1;
+		grid-row: 2 / span 1;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+/**** ABOUT SECTION ****/
+.about_section {
+	position: relative;
+	display: block;
+	max-width: 100%;
+	padding-block: 5rem;
+	background-color: var(--background);
+}
+.about_section::before {
+	position: absolute;
+	content: '';
+	bottom: 0;
+	height: 100%;
+	width: 3px;
+	background-image: linear-gradient(
+		var(--background) 1.04%,
+		var(--primary-variant) 19.79%,
+		var(--secondary) 34.9%,
+		var(--primary-variant) 79.69%,
+		var(--background) 98.96%
+	);
+}
+.grid_top_border {
+	position: relative;
+	width: 100%;
+}
+.grid_top_border::before {
+	--offset: 200px;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: calc(var(--offset) / 2 * -1);
+	height: 3px;
+	width: calc(100% + var(--offset));
+	background-image: linear-gradient(
+		to left,
+		var(--background) 1.04%,
+		var(--primary-variant) 19.79%,
+		var(--secondary) 34.9%,
+		var(--primary-variant) 79.69%,
+		var(--background) 98.96%
+	);
+}
+
+.about_grid {
+	max-width: 100%;
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.about_grid > * {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px var(--secondary) dashed;
+	border-inline-width: 0;
+}
+.about_grid > .about_grid_top_left,
+.about_grid > .about_grid_bottom_right {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(0, 10%));
+	grid-template-rows: repeat(auto-fill, minmax(0, 10%));
+	background: url(../public/gridBackground.svg);
+	background-size: 10%;
+}
+.grid_title {
+	grid-column: 3 / span 6;
+	grid-row: 2 / span 2;
+}
+
+@media (min-width: 480px) {
+	.about_grid {
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 50% 50%;
+	}
+	.about_grid > * {
+		min-height: 50vh;
+	}
 }

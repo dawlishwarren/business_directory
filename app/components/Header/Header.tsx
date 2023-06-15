@@ -13,7 +13,7 @@ export default function Header() {
 			<nav className={styles.nav}>
 				<Link tabIndex={0} href='/'>
 					<h5 className={pathname == '/' ? styles.disabled : styles.nav_link}>
-						HomePage
+						Home
 					</h5>
 				</Link>
 				<Link href='/directory'>

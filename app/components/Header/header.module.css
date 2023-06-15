@@ -1,16 +1,43 @@
 .header {
 	width: 100%;
 	height: 100px;
+	z-index: 10;
 	padding-inline: 50px;
-	/* padding-top: 25px; */
 	display: grid;
 	grid-template-columns: 1fr 100px 1fr;
 	overflow: hidden;
+	position: sticky;
+	top: -1px;
+	background-color: var(--background);
+	backdrop-filter: saturate(180%) blur(5px);
+	opacity: 0.9;
+}
+.header::after {
+	position: absolute;
+	content: '';
+	bottom: 0;
+	height: 3px;
+	width: 100%;
+	background-image: linear-gradient(
+			90deg,
+			rgba(0, 0, 0, 0) 0%,
+			rgba(0, 0, 0, 0.0199673) 0.01%,
+			rgba(0, 0, 0, 0.0416667) 99.99%,
+			rgba(0, 0, 0, 0) 100%
+		),
+		linear-gradient(
+			90deg,
+			var(--background) 1.04%,
+			var(--primary-variant) 19.79%,
+			var(--secondary) 34.9%,
+			var(--primary-variant) 79.69%,
+			var(--background) 98.96%
+		);
 }
 .nav {
 	display: flex;
-	gap: 50px;
 	align-items: center;
+	gap: 8px;
 }
 h5.disabled {
 	text-decoration: underline;
@@ -22,9 +49,9 @@ h5.nav_link {
 	background-clip: text;
 	background: linear-gradient(
 		to right,
-		rgba(var(--on-background-rgba-high)) 0%,
-		rgba(var(--on-background-rgba-high)) 50%,
-		rgba(var(--on-background-rgba-medium)) 50%
+		var(--on-background-high) 0%,
+		var(--on-background-high) 50%,
+		var(--on-background-medium) 50%
 	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -36,7 +63,7 @@ h5.nav_link:hover {
 	background-position: 0 100%;
 }
 .header > * > a:focus-within > h5 {
-	color: rgba(var(--tertiary-rgba));
+	color: var(--tertiary);
 	-webkit-text-fill-color: inherit;
 }
 nav.nav,
@@ -79,4 +106,10 @@ nav.nav,
 }
 .theme_changer > dialog > .dialog_content > button {
 	align-self: flex-end;
+}
+
+@media (min-width: 480px) {
+	.nav {
+		gap: 50px;
+	}
 }
