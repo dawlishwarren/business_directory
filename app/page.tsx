@@ -1,23 +1,29 @@
-import GradientRotation from './components/GradientRotation/GradientRotation';
-import PhoneImage from './components/PhoneImage';
-import styles from './page.module.css';
-import Link from 'next/link';
+import GradientRotation from "./components/GradientRotation/GradientRotation";
+import PhoneImage from "./components/PhoneImage";
+import styles from "./page.module.css";
+import buttonStyles from "./styles/utilities/button.module.css";
+import Link from "next/link";
 
 export default function Home() {
 	return (
 		<main className={styles.main}>
+			{/* Hero Section */}
 			<GradientRotation>
-				<div className='container'>
-					<section id='hero' className={styles.hero_section}>
+				<div className="container">
+					<section id="hero" className={styles.hero_section}>
 						<div className={styles.heading_container}>
 							<h1 className={styles.heading}>
 								Your Local Community, in the <strong>palm of your hands</strong>
 							</h1>
 						</div>
 						<div className={styles.buttons_container}>
-							<button className='button'>Search...</button>
-							<button className='button'>
-								<Link href='/directory'>Try out the directory</Link>
+							<Link
+								href="/directory"
+								className={`${buttonStyles.button_large} button`}>
+								Try out the directory
+							</Link>
+							<button className={`${buttonStyles.button_large} button`}>
+								Search...
 							</button>
 						</div>
 						<div className={styles.image_container}>
@@ -26,22 +32,47 @@ export default function Home() {
 					</section>
 				</div>
 			</GradientRotation>
-
-			<div className='container'>
-				<section id='about' className={styles.about_section}>
+			{/* About Section */}
+			<div className="container">
+				<section id="about" className={styles.about_section}>
 					<div className={styles.grid_top_border}></div>
 					<div className={styles.about_grid}>
-						<div className={styles.about_grid_top_left}>
+						<div
+							className={`${styles.about_grid_top_left} ${styles.about_grid_section}`}>
 							<h3 className={styles.grid_title}>Placeholder</h3>
 						</div>
-						<div>
-							<h3>Top Right</h3>
+						<div className={`${styles.about_grid_section}`}>
+							<h3 className="uppercase">
+								Directory Solutions Without The Faff
+							</h3>
+							<p className="body_1_center">
+								In an increasingly confusing online world, we aim to connect
+								locals with their businesses in a way that is easy, intuitive,
+								and comprehensive.
+							</p>
 						</div>
-						<div>
-							<h3>Bottom Left</h3>
+						<div className={`${styles.about_grid_section}`}>
+							<h3 className="uppercase">Designed for community</h3>
+							<p className="body_1">
+								Built to be simple and easy to replicate, there&apos;s no reason
+								why every community can&apos;t have their own business directory
+								at their fingertips.
+							</p>
+							<p className="body_1">
+								Managed by a designated admin, you won&apos;t find updates that
+								ruin your flow or unnecessary features added.{" "}
+							</p>
+							<p className="body_1">
+								A win-win solution that helps business and locals alike.{" "}
+							</p>
 						</div>
-						<div className={styles.about_grid_bottom_right}>
-							<h3 className={styles.grid_title}>Placeholder</h3>
+						<div
+							className={`${styles.about_grid_bottom_right} ${styles.about_grid_section}`}>
+							<iframe
+								className={styles.map}
+								src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d18851.546340905723!2d-1.5480595100924446!3d53.799395299393865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1687532356097!5m2!1sen!2suk"
+								loading="lazy"
+								referrerPolicy="no-referrer-when-downgrade"></iframe>
 						</div>
 					</div>
 				</section>

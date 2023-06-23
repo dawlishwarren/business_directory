@@ -6,10 +6,12 @@
 	/* Colors */
 	--primary: rgba(180, 117, 201);
 	--primary-variant: rgba(134, 114, 214);
-	--secondary: rgba(149, 82, 171);
+	--secondary: rgb(149, 82, 171);
 	--tertiary: rgba(72, 129, 51);
 	--background: rgba(245, 252, 251, 0.88);
-	--surface: rgba(215, 221, 224);
+	--surface: rgb(215, 221, 224);
+	--shadow: rgb(180 117 201 / 8%);
+	--shadow-hover: rgb(180 117 201 / 16%);
 	--error: rgba(250, 36, 12, 0.94);
 	/* On Colors */
 	--on-primary: rgba(0, 0, 0);
@@ -29,12 +31,14 @@
 	--on-error: rgba(253, 253, 253, 1);
 }
 /* Dark Mode Colour Variables */
-[data-theme='dark'] {
+[data-theme="dark"] {
 	/* Colors */
 	--primary: rgba(180, 117, 201, 1);
 	--primary-variant: rgba(134, 114, 214, 1);
 	--background: rgba(13, 13, 13, 1);
 	--surface: rgba(33, 35, 38, 1);
+	--shadow: rgb(180 117 201 / 4%);
+	--shadow-hover: rgb(180 117 201 / 8%);
 	--error: rgba(250, 36, 12, 0.94);
 
 	/* On Colors */
@@ -57,6 +61,9 @@ body {
 body.error {
 	background: var(--error);
 	color: var(--on-error);
+}
+main {
+	background-color: var(--background);
 }
 /***End of Colour Variables***/
 
@@ -84,7 +91,7 @@ h6,
 }
 h1,
 h1 > strong {
-	font-size: max(48px, min(5vw, 73px));
+	font-size: max(48px, min(5vw, 72px));
 	font-weight: 850;
 	letter-spacing: -1.5px;
 }
@@ -98,6 +105,7 @@ h3 {
 	font-size: 47px;
 	font-weight: light;
 	letter-spacing: 0px;
+	margin-bottom: 47px;
 }
 h4 {
 	font-size: 33px;
@@ -131,9 +139,17 @@ body,
 .overline {
 	font-family: var(--font-inter);
 }
-.body_1 {
+.body_1,
+.body_1_center {
 	font-size: 16px;
 	letter-spacing: 0.5px;
+	margin-bottom: 16px;
+}
+.body_1 {
+	text-align: start;
+}
+.body_1_center {
+	text-align: center;
 }
 .body_2,
 .button {
@@ -142,25 +158,8 @@ body,
 .body_2 {
 	letter-spacing: 0.25px;
 }
-.button {
-	letter-spacing: 1.25px;
+.uppercase {
 	text-transform: uppercase;
-	padding: 25px;
-	margin-block: 50px;
-	width: 100%;
-	border-radius: var(--border-radius);
-	border: 2px solid transparent;
-	box-shadow: 0 -3px 5px 2px var(--surface);
-	background-color: var(--background);
-	background-image: linear-gradient(var(--background), var(--background)),
-		linear-gradient(
-			calc(-15deg),
-			var(--primary) 0,
-			var(--primary-variant) 20%,
-			rgba(121, 40, 20, 0) 80%
-		);
-	background-origin: border-box;
-	background-clip: padding-box, border-box;
 }
 
 /***End of Typography***/

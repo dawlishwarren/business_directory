@@ -1,4 +1,11 @@
 /**** HERO SECTION ****/
+.radial_background {
+	background: radial-gradient(
+		ellipse at center,
+		var(--surface) 0%,
+		var(--background) 67%
+	);
+}
 .hero_section {
 	max-width: 60rem;
 	max-height: 924px;
@@ -39,12 +46,13 @@
 }
 .image_container {
 	display: none;
+	isolation: isolate;
 }
 .image_container > img {
 	z-index: 2;
 }
 .image_container::before {
-	content: '';
+	content: "";
 	position: absolute;
 	z-index: -1;
 	height: 90%;
@@ -63,7 +71,7 @@
 		inset 0 0 5px 3px var(--background);
 }
 .image_container::after {
-	content: '';
+	content: "";
 	position: absolute;
 	z-index: 1;
 	height: 400px;
@@ -95,12 +103,18 @@
 	padding-block: 5rem;
 	background-color: var(--background);
 }
-.about_section::before {
+/* Section Border Lines */
+.about_section::before,
+.about_section::after {
 	position: absolute;
-	content: '';
+	content: "";
 	bottom: 0;
 	height: 100%;
 	width: 3px;
+}
+/* Left Hand Gradient Border */
+.about_section::before {
+	left: 0;
 	background-image: linear-gradient(
 		var(--background) 1.04%,
 		var(--primary-variant) 19.79%,
@@ -108,14 +122,31 @@
 		var(--primary-variant) 79.69%,
 		var(--background) 98.96%
 	);
+	z-index: 2;
 }
+/* Right Hand Gradient Border */
+.about_section::after {
+	right: 0;
+	background-image: linear-gradient(
+		var(--background) 0%,
+		var(--primary-variant) 19.79%,
+		var(--background) 34.9%,
+		var(--background) 50%,
+		var(--primary-variant) 66.6%,
+		var(--secondary) 75%,
+		var(--primary-variant) 79.69%,
+		var(--background) 100%
+	);
+	z-index: 2;
+}
+/* Top Gradient Border */
 .grid_top_border {
 	position: relative;
 	width: 100%;
 }
 .grid_top_border::before {
 	--offset: 200px;
-	content: '';
+	content: "";
 	position: absolute;
 	top: 0;
 	left: calc(var(--offset) / 2 * -1);
@@ -129,24 +160,74 @@
 		var(--primary-variant) 79.69%,
 		var(--background) 98.96%
 	);
+	z-index: 2;
 }
 
+/* 4x GRID */
 .about_grid {
 	max-width: 100%;
 	display: grid;
 	grid-template-columns: auto;
 	grid-template-rows: 1fr 1fr 1fr 1fr;
+	position: relative;
 }
 .about_grid > * {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border: 1px var(--secondary) dashed;
-	border-inline-width: 0;
+}
+/* Inner Borders */
+.about_grid > .about_grid_section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	border: 0;
+	position: relative;
+}
+.about_grid > .about_grid_section:nth-child(-n + 2) {
+	border-bottom: solid 2px transparent;
+}
+/* X Axis Left-to-Right Gradient Border */
+.about_grid > .about_grid_section:nth-child(1)::after {
+	content: "";
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 200%;
+	height: 2px;
+	background-image: linear-gradient(
+		to right,
+		var(--secondary) 0%,
+		var(--primary-variant) 50%,
+		var(--background) 98.96%
+	);
+}
+/* Y Axis Top-To-Bottom Gradient Border */
+.about_grid > .about_grid_section:nth-child(2n) {
+	border-left: solid 3px transparent;
+}
+.about_grid > .about_grid_section:nth-child(2)::before {
+	content: "";
+	position: absolute;
+	top: 0px;
+	left: -3px;
+	width: 4px;
+	height: calc(200% + 5rem);
+	background-image: linear-gradient(
+		var(--secondary) 0%,
+		var(--primary-variant) 50%,
+		var(--background) 98.96%
+	);
+	z-index: 1;
+}
+.about_grid > .about_grid_section:nth-child(n + 2):nth-child(-n + 3) {
+	padding: 3rem;
 }
 .about_grid > .about_grid_top_left,
 .about_grid > .about_grid_bottom_right {
-	display: grid;
+	display: grid !important;
 	grid-template-columns: repeat(auto-fill, minmax(0, 10%));
 	grid-template-rows: repeat(auto-fill, minmax(0, 10%));
 	background: url(../public/gridBackground.svg);
@@ -155,6 +236,37 @@
 .grid_title {
 	grid-column: 3 / span 6;
 	grid-row: 2 / span 2;
+}
+.map {
+	grid-column: 2 / span 8;
+	grid-row: 2 / span 8;
+	height: 100%;
+	width: 100%;
+	border-radius: var(--border-radius);
+	background-image: linear-gradient(
+		to left,
+		var(--background) 1.04%,
+		var(--primary-variant) 19.79%,
+		var(--secondary) 34.9%,
+		var(--primary-variant) 79.69%,
+		var(--background) 98.96%
+	);
+	border: 3px solid transparent;
+	background-image: linear-gradient(var(--background), var(--background)),
+		linear-gradient(
+			calc(15deg),
+			var(--primary) 0,
+			var(--primary-variant) 20%,
+			rgba(121, 40, 20, 0) 80%
+		);
+	background-origin: border-box;
+	background-clip: padding-box, border-box;
+	--box-shadow: 0 -3px 5px 5px var(--shadow);
+	box-shadow: var(--box-shadow);
+}
+.map:hover {
+	--box-shadow-hover: 0 -2px 6px 6px var(--shadow-hover);
+	box-shadow: var(--box-shadow-hover);
 }
 
 @media (min-width: 480px) {
