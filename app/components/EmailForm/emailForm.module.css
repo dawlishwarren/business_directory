@@ -1,0 +1,50 @@
+.form {
+	--stack-direction: column;
+	--stack-flex: initial;
+	--stack-align: center;
+	--stack-justify: center;
+	--stack-padding: 16px;
+	--stack-gap: 32px;
+	--box-shadow: 2px 4px 8px var(--shadow);
+	--box-shadow-hover: 2px 4px 16px var(--shadow-hover);
+	display: flex;
+	flex-direction: var(--stack-direction);
+	align-items: center;
+	width: 100%;
+	padding: 2rem;
+	border-radius: var(--border-radius);
+	color: var(--on-surface-high);
+	filter: drop-shadow(0 8px 30px 0, 0, 0, 0.12);
+	border: 3px solid transparent;
+	box-shadow: var(--box-shadow);
+	background-image: linear-gradient(var(--form), var(--form)),
+		linear-gradient(
+			calc(var(--gradient-rotation)),
+			var(--secondary) 0,
+			var(--primary) 20%,
+			rgba(121, 40, 202, 0) 80%
+		);
+	background-origin: border-box;
+	background-clip: padding-box, border-box;
+	position: relative;
+}
+.form > * {
+	padding: var(--stack-padding);
+}
+.form input,
+.form textarea {
+	border-radius: calc(var(--border-radius) / 2);
+	border: 2px solid var(--surface);
+	width: 100%;
+}
+.form:hover {
+	box-shadow: var(--box-shadow-hover);
+}
+
+.textarea {
+	height: unset;
+	font-family: inherit;
+	height: 300px;
+	resize: none;
+	overflow-y: auto;
+}

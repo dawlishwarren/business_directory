@@ -1,14 +1,27 @@
+.button_small {
+	max-width: fit-content;
+	padding: 12.5px;
+	margin-block: 12.5px;
+}
+.button_medium {
+	width: 50%;
+	padding: 12.5px;
+	margin-block: 25px;
+}
 .button_large {
-	--box-shadow: 0 -3px 5px 5px var(--shadow);
+	padding: 25px;
+	margin-block: 50px;
+	width: 100%;
+}
+
+.button_small,
+.button_medium,
+.button_large {
 	display: flex;
 	position: relative;
 	align-items: center;
 	justify-content: center;
 	letter-spacing: 1.25px;
-	text-transform: uppercase;
-	padding: 25px;
-	margin-block: 50px;
-	width: 100%;
 	border-radius: var(--border-radius);
 	border: 2px solid transparent;
 	box-shadow: var(--box-shadow);
@@ -24,9 +37,10 @@
 	background-clip: padding-box, border-box;
 }
 
+.button_small::after,
+.button_medium::after,
 .button_large::after {
-	--box-shadow-hover: 0 -2px 6px 6px var(--shadow-hover);
-	content: "";
+	content: '';
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -35,6 +49,8 @@
 	opacity: 0;
 	transition: opacity 200ms ease-in-out;
 }
+.button_small:hover::after,
+.button_medium:hover::after,
 .button_large:hover::after {
 	opacity: 1;
 }

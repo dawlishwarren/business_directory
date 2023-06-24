@@ -2,6 +2,7 @@
 	/* Settings */
 	--border-radius: 25px;
 	--gradient-rotation: -0.3rad;
+	--max-width: 60rem;
 	/***Colour Variables***/
 	/* Colors */
 	--primary: rgba(180, 117, 201);
@@ -9,9 +10,10 @@
 	--secondary: rgb(149, 82, 171);
 	--tertiary: rgba(72, 129, 51);
 	--background: rgba(245, 252, 251, 0.88);
+	--form: rgb(245 252 251);
 	--surface: rgb(215, 221, 224);
-	--shadow: rgb(180 117 201 / 8%);
-	--shadow-hover: rgb(180 117 201 / 16%);
+	--shadow: rgb(0 0 0 / 8%);
+	--shadow-hover: rgb(0 0 0 / 16%);
 	--error: rgba(250, 36, 12, 0.94);
 	/* On Colors */
 	--on-primary: rgba(0, 0, 0);
@@ -25,17 +27,18 @@
 	--on-background-medium: rgba(13, 13, 13, 0.6);
 	--on-background-disabled: rgba(255, 255, 255, 0.38);
 	--on-surface: rgba(13, 13, 13, 1);
-	--on-surface-high: rgba(255, 255, 255, 0.87);
-	--on-surface-medium: rgba(255, 255, 255, 0.6);
-	--on-surface-disabled: rgba(255, 255, 255, 0.38);
+	--on-surface-high: rgba(13, 13, 13, 0.87);
+	--on-surface-medium: rgba(13, 13, 13, 0.6);
+	--on-surface-disabled: rgba(13, 13, 13, 0.38);
 	--on-error: rgba(253, 253, 253, 1);
 }
 /* Dark Mode Colour Variables */
-[data-theme="dark"] {
+[data-theme='dark'] {
 	/* Colors */
 	--primary: rgba(180, 117, 201, 1);
 	--primary-variant: rgba(134, 114, 214, 1);
 	--background: rgba(13, 13, 13, 1);
+	--form: rgb(33, 35, 38);
 	--surface: rgba(33, 35, 38, 1);
 	--shadow: rgb(180 117 201 / 4%);
 	--shadow-hover: rgb(180 117 201 / 8%);
@@ -48,17 +51,20 @@
 	--on-background-high: rgba(255, 255, 255, 0.87);
 	--on-background-medium: rgba(255, 255, 255, 0.6);
 	--on-background-disabled: rgba(255, 255, 255, 0.38);
-	--on-surface: rgba(13, 13, 13, 1);
+	--on-surface: rgba(255, 255, 255, 1);
 	--on-surface-high: rgba(255, 255, 255, 0.87);
 	--on-surface-medium: rgba(255, 255, 255, 0.6);
 	--on-surface-disabled: rgba(255, 255, 255, 0.38);
 }
 /* Variables Applied Globally */
 body {
-	color: var(--on-background-high);
+	color: var(--on-background-medium);
 	background: var(--background);
 }
-body.error {
+.high {
+	color: var(--on-background-high);
+}
+.error {
 	background: var(--error);
 	color: var(--on-error);
 }
@@ -158,7 +164,8 @@ body,
 .body_2 {
 	letter-spacing: 0.25px;
 }
-.uppercase {
+.uppercase,
+.button {
 	text-transform: uppercase;
 }
 
@@ -181,7 +188,7 @@ a {
 	text-decoration: none;
 }
 .container {
-	max-width: 60rem;
+	max-width: var(--max-width);
 	margin: 0 auto;
 }
 @media (prefers-color-scheme: dark) {
@@ -190,9 +197,8 @@ a {
 	}
 }
 /***End of Global Resets***/
-
 dialog {
-	width: 400px;
+	width: 600px;
 	aspect-ratio: 1.618/1;
 	margin: auto;
 	overflow: hidden;
@@ -223,7 +229,6 @@ dialog::backdrop {
 			var(--secondary) 40%,
 			var(--surface) 60%
 		);
-
 	background-origin: border-box;
 	background-clip: padding-box, border-box;
 }

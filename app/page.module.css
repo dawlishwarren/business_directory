@@ -6,8 +6,8 @@
 		var(--background) 67%
 	);
 }
-.hero_section {
-	max-width: 60rem;
+
+.hero_container {
 	max-height: 924px;
 	display: grid;
 	grid-template-columns: 50% 50%;
@@ -52,7 +52,7 @@
 	z-index: 2;
 }
 .image_container::before {
-	content: "";
+	content: '';
 	position: absolute;
 	z-index: -1;
 	height: 90%;
@@ -71,7 +71,7 @@
 		inset 0 0 5px 3px var(--background);
 }
 .image_container::after {
-	content: "";
+	content: '';
 	position: absolute;
 	z-index: 1;
 	height: 400px;
@@ -96,24 +96,25 @@
 }
 
 /**** ABOUT SECTION ****/
-.about_section {
+.about_container {
 	position: relative;
 	display: block;
-	max-width: 100%;
+	min-width: var(--max-width);
+	margin: 0 auto;
 	padding-block: 5rem;
 	background-color: var(--background);
 }
 /* Section Border Lines */
-.about_section::before,
-.about_section::after {
+.about_container::before,
+.about_container::after {
 	position: absolute;
-	content: "";
+	content: '';
 	bottom: 0;
 	height: 100%;
 	width: 3px;
 }
 /* Left Hand Gradient Border */
-.about_section::before {
+.about_container::before {
 	left: 0;
 	background-image: linear-gradient(
 		var(--background) 1.04%,
@@ -125,7 +126,7 @@
 	z-index: 2;
 }
 /* Right Hand Gradient Border */
-.about_section::after {
+.about_container::after {
 	right: 0;
 	background-image: linear-gradient(
 		var(--background) 0%,
@@ -146,7 +147,7 @@
 }
 .grid_top_border::before {
 	--offset: 200px;
-	content: "";
+	content: '';
 	position: absolute;
 	top: 0;
 	left: calc(var(--offset) / 2 * -1);
@@ -191,7 +192,7 @@
 }
 /* X Axis Left-to-Right Gradient Border */
 .about_grid > .about_grid_section:nth-child(1)::after {
-	content: "";
+	content: '';
 	position: absolute;
 	bottom: -2px;
 	left: 0;
@@ -209,7 +210,7 @@
 	border-left: solid 3px transparent;
 }
 .about_grid > .about_grid_section:nth-child(2)::before {
-	content: "";
+	content: '';
 	position: absolute;
 	top: 0px;
 	left: -3px;
@@ -233,7 +234,7 @@
 	background: url(../public/gridBackground.svg);
 	background-size: 10%;
 }
-.grid_title {
+.placeholder {
 	grid-column: 3 / span 6;
 	grid-row: 2 / span 2;
 }
@@ -268,7 +269,6 @@
 	--box-shadow-hover: 0 -2px 6px 6px var(--shadow-hover);
 	box-shadow: var(--box-shadow-hover);
 }
-
 @media (min-width: 480px) {
 	.about_grid {
 		grid-template-columns: 50% 50%;
@@ -278,3 +278,48 @@
 		min-height: 50vh;
 	}
 }
+/**** ABOUT SECTION ****/
+
+/**** CONTACT SECTION ****/
+.contact_section {
+	--stack-direction: row;
+	--stack-flex: initial;
+	--stack-align: center;
+	--stack-justify: center;
+	--stack-padding: 0px;
+	--stack-gap: 64px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin: 0 auto;
+	padding-top: 5rem;
+	background: radial-gradient(
+		ellipse at center,
+		var(--surface) 0%,
+		var(--background) 67%
+	);
+}
+.contact_container {
+	position: relative;
+	display: flex;
+	flex-direction: var(--stack-direction);
+	align-items: var(--stack-align);
+	justify-content: var(--stack-justify);
+	flex: var(--stack-flex);
+	gap: var(--stack-gap);
+	width: 100%;
+	padding-top: 2.5rem;
+}
+.text_section {
+	display: block;
+	padding: 2.5rem;
+	height: 100%;
+	text-align: start;
+}
+.text_section h5,
+.text_section p {
+	margin-bottom: 14px;
+}
+
+/**** CONTACT SECTION ****/
