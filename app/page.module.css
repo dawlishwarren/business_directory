@@ -361,16 +361,9 @@
 		var(--background) 15%
 	);
 	color: var(--on-surface-medium);
+	overflow: hidden;
 }
-@media (min-width: 960px) {
-	.contact_section {
-		--stack-direction: row;
-		--stack-align: center;
-		--stack-justify: center;
-		--stack-padding: 0px;
-		--stack-gap: 32px;
-	}
-}
+
 .contact_container {
 	position: relative;
 	display: flex;
@@ -380,7 +373,7 @@
 	flex: var(--stack-flex);
 	gap: var(--stack-gap);
 	padding-block: 2.5rem;
-	padding-inline: 0;
+	padding-inline: var(--stack-padding);
 }
 .text_section {
 	display: block;
@@ -392,6 +385,15 @@
 .text_section p {
 	margin-bottom: 14px;
 	margin-trim: block;
+}
+@media (min-width: 960px) {
+	.contact_section {
+		--stack-direction: row;
+		--stack-align: center;
+		--stack-justify: center;
+		--stack-padding: 0px;
+		--stack-gap: 32px;
+	}
 }
 
 /**** CONTACT SECTION ****/

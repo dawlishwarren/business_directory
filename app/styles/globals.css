@@ -112,17 +112,17 @@ h1 > strong {
 }
 
 h2 {
-	font-size: max(36px, min(4vw, 58px));
+	font-size: max(30px, min(4vw, 58px));
 	font-weight: bolder;
 	letter-spacing: -0.5px;
 }
 h3 {
-	font-size: max(28px, min(3vw, 47px));
+	font-size: max(26px, min(3vw, 47px));
 	font-weight: bold;
 	letter-spacing: 0px;
 }
 h4 {
-	font-size: 33px;
+	font-size: max(20px, min(2.5vw, 33px));
 	font-weight: normal;
 	letter-spacing: 0.25px;
 }
