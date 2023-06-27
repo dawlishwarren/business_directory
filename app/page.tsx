@@ -23,7 +23,8 @@ export default function Home() {
 								className={`${buttonStyles.button_large} button`}>
 								Try out the directory
 							</Link>
-							<button className={`${buttonStyles.button_large} button`}>
+							<button
+								className={`${buttonStyles.button_large} ${styles.search_button} button`}>
 								Search...
 							</button>
 						</div>
@@ -54,16 +55,16 @@ export default function Home() {
 						</div>
 						<div className={`${styles.about_grid_section}`}>
 							<h3 className='uppercase high'>Designed for community</h3>
-							<p className='body_1'>
+							<p className='body_1_center'>
 								Built to be simple and easy to replicate, there&apos;s no reason
 								why every community can&apos;t have their own business directory
 								at their fingertips.
 							</p>
-							<p className='body_1'>
+							<p className='body_1_center'>
 								Managed by a designated admin, you won&apos;t find updates that
 								ruin your flow or unnecessary features added.{' '}
 							</p>
-							<p className='body_1'>
+							<p className='body_1_center'>
 								A win-win solution that helps business and locals alike.{' '}
 							</p>
 						</div>
@@ -76,6 +77,7 @@ export default function Home() {
 								referrerPolicy='no-referrer-when-downgrade'></iframe>
 						</div>
 					</div>
+					<div className={styles.grid_bottom_border}></div>
 				</div>
 			</section>
 			<GradientRotation id='contactForm'>
