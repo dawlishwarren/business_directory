@@ -1,12 +1,12 @@
 /**** HERO SECTION ****/
 .radial_background {
+	width: 100vw;
 	background: radial-gradient(
 		ellipse at center,
 		var(--surface) 0%,
 		var(--background) 67%
 	);
 }
-
 .hero_container {
 	max-height: 924px;
 	display: grid;
@@ -15,6 +15,7 @@
 	overflow: hidden;
 	padding-block: 10vh;
 }
+/* Heading */
 .heading_container {
 	grid-column: 1 / span 2;
 	grid-row: 1 / span 1;
@@ -35,6 +36,7 @@
 	background-clip: text;
 	text-fill-color: transparent;
 }
+/* Buttons */
 .buttons_container {
 	grid-column: 1 / span 2;
 	grid-row: 2 / span 1;
@@ -47,6 +49,8 @@
 .buttons_container .search_button {
 	display: none;
 }
+/* Phone Image & Background */
+/* Container has new stacking context, the SVG image on top, white background on phone in the middle, conic gradient beneath */
 .image_container {
 	display: none;
 	isolation: isolate;
@@ -84,6 +88,7 @@
 	/* background-image: url('/public/site-scroll.webp'); */
 }
 
+/* Search Button visible on >Laptop width, update grid layout  */
 @media (min-width: 960px) {
 	.buttons_container {
 		grid-column: 1 / span 1;
@@ -355,8 +360,9 @@
 	background: radial-gradient(
 		ellipse at center,
 		var(--surface) 0%,
-		var(--background) 67%
+		var(--background) 15%
 	);
+	color: var(--on-surface-medium);
 }
 @media (min-width: 960px) {
 	.contact_section {

@@ -10,6 +10,7 @@
 	--secondary: rgb(149, 82, 171);
 	--tertiary: rgba(72, 129, 51);
 	--background: rgba(245, 252, 251, 0.88);
+	--footer: rgb(215 221 224 / 60%);
 	--form: rgb(245 252 251);
 	--surface: rgb(215, 221, 224);
 	--shadow: rgb(0 0 0 / 8%);
@@ -38,6 +39,7 @@
 	--primary: rgba(180, 117, 201, 1);
 	--primary-variant: rgba(134, 114, 214, 1);
 	--background: rgba(13, 13, 13, 1);
+	--footer: rgb(13 13 13 / 60%);
 	--form: rgb(33, 35, 38);
 	--surface: rgba(33, 35, 38, 1);
 	--shadow: rgb(180 117 201 / 4%);
@@ -98,7 +100,7 @@ h6,
 h1,
 h1 > strong {
 	font-size: max(48px, min(5vw, 72px));
-	font-weight: 850;
+	font-weight: 800;
 	letter-spacing: -1.5px;
 }
 
@@ -201,6 +203,50 @@ a {
 	}
 }
 /***End of Global Resets***/
+/* Reused Components */
+footer {
+	position: relative;
+	background-image: linear-gradient(
+		to left,
+		var(--background) 0%,
+		var(--footer) 38.2%,
+		var(--footer) 61.8%,
+		var(--background) 100%
+	);
+	border-top: 3px solid transparent;
+	color: var(--on-surface-medium) !important;
+}
+footer::before {
+	position: absolute;
+	content: '';
+	height: 3px;
+	top: -3px;
+	width: 100%;
+	background-image: linear-gradient(
+			90deg,
+			rgba(0, 0, 0, 0) 0%,
+			rgba(0, 0, 0, 0.0199673) 0.01%,
+			rgba(0, 0, 0, 0.0416667) 99.99%,
+			rgba(0, 0, 0, 0) 100%
+		),
+		linear-gradient(
+			90deg,
+			var(--background) 1.04%,
+			var(--primary-variant) 38.2%,
+			var(--primary-variant) 61.8%,
+			var(--background) 98.96%
+		);
+}
+footer .footer_wrapper {
+	display: flex;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	min-height: fit-content;
+	padding-block: 2.5rem;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
 dialog {
 	width: 600px;
 	aspect-ratio: 1.618/1;
@@ -213,29 +259,6 @@ dialog::backdrop {
 	background-color: rgba(0, 0, 0, 0.7);
 }
 
-.card {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	width: 480px;
-	height: 200px;
-	color: var(--on-surface-high);
-	filter: drop-shadow(0 8px 30px 0, 0, 0, 0.12);
-	border: 1.6px solid transparent;
-	box-shadow: inset 0 1px 1px -1px var(--surface);
-	border-radius: var(--border-radius);
-	background-image: linear-gradient(var(--surface), var(--surface)),
-		linear-gradient(
-			calc(var(--gradient-rotation)),
-			var(--primary) 0,
-			var(--primary-variant) 20%,
-			var(--secondary) 40%,
-			var(--surface) 60%
-		);
-	background-origin: border-box;
-	background-clip: padding-box, border-box;
-}
 .secondary {
 	color: var(--on-surface-medium);
 }

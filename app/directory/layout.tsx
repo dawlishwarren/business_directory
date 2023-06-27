@@ -1,12 +1,7 @@
-export default function DirectoryLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
-	return (
-		<section>
-			<nav>Navbar!</nav>
-			{children}
-		</section>
-	);
+import { ReactNode } from 'react';
+import { Suspense } from 'react';
+import Loading from './business/loading';
+
+export default function Layout({ children }: { children: ReactNode }) {
+	return <Suspense fallback={<Loading />}>{children}</Suspense>;
 }

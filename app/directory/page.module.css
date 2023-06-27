@@ -1,0 +1,11 @@
+.business_grid {
+	--grid-template: repeat(3, minmax(0, 1fr));
+	padding-block: 5rem;
+	display: grid;
+	gap: 16px;
+}
+@media (min-width: 960px) {
+	.business_grid {
+		grid-template-columns: var(--grid-template);
+	}
+}

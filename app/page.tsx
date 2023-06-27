@@ -9,8 +9,8 @@ export default function Home() {
 	return (
 		<main className={styles.main}>
 			{/* Hero Section */}
-			<GradientRotation id='phone'>
-				<section id='hero' className={styles.hero_section}>
+			<section id='hero' className={styles.hero_section}>
+				<GradientRotation id='phone'>
 					<div className={`${styles.hero_container} container`}>
 						<div className={styles.heading_container}>
 							<h1 className={`${styles.heading} high`}>
@@ -32,8 +32,8 @@ export default function Home() {
 							<PhoneImage />
 						</div>
 					</div>
-				</section>
-			</GradientRotation>
+				</GradientRotation>
+			</section>
 			{/* About Section */}
 			<section id='about' className={styles.about_section}>
 				<div className={`${styles.about_container} container`}>
@@ -80,8 +80,8 @@ export default function Home() {
 					<div className={styles.grid_bottom_border}></div>
 				</div>
 			</section>
-			<GradientRotation id='contactForm'>
-				<section id='contact' className={styles.contact_section}>
+			<section id='contact' className={styles.contact_section}>
+				<GradientRotation id='contactForm'>
 					<h2 className='uppercase high'>Connect Your Town</h2>
 					<div className={`${styles.contact_container} container`}>
 						<aside className={styles.text_section}>
@@ -114,8 +114,8 @@ export default function Home() {
 						</aside>
 						<EmailForm />
 					</div>
-				</section>
-			</GradientRotation>
+				</GradientRotation>
+			</section>
 		</main>
 	);
 }

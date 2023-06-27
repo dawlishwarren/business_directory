@@ -2,6 +2,7 @@ import './styles/globals.css';
 import { Providers } from './providers';
 import { inter, poppins } from './fonts';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 export const metadata = {
 	title: 'Create Next App',
@@ -22,7 +23,7 @@ export default function RootLayout({
 				<Providers>
 					<Header />
 					{children}
-					<footer>Footer</footer>
+					<Footer />
 				</Providers>
 			</body>
 		</html>

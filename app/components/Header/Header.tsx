@@ -9,7 +9,7 @@ export default function Header() {
 	const pathname = usePathname();
 	console.log(pathname);
 	return (
-		<div className={styles.header}>
+		<header className={styles.header}>
 			<nav className={styles.nav}>
 				<Link tabIndex={0} href='/'>
 					<h5 className={pathname == '/' ? styles.disabled : styles.nav_link}>
@@ -36,6 +36,6 @@ export default function Header() {
 			<div className={styles.theme_changer}>
 				<ThemeChanger />
 			</div>
-		</div>
+		</header>
 	);
 }
