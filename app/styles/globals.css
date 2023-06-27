@@ -3,16 +3,21 @@
 	--border-radius: 25px;
 	--gradient-rotation: -0.3rad;
 	--max-width: 100dvw;
+	--header-height: 100px;
+	--footer-height: 100px;
+	--box-shadow: 2px 4px 12px var(--shadow);
+	--box-shadow-hover: 2px 4px 16px var(--shadow-hover);
+
 	/***Colour Variables***/
 	/* Colors */
-	--primary: rgba(180, 117, 201);
-	--primary-variant: rgba(134, 114, 214);
+	--primary: rgb(180, 117, 201);
+	--primary-variant: rgb(134, 114, 214);
 	--secondary: rgb(149, 82, 171);
-	--tertiary: rgba(72, 129, 51);
-	--background: rgba(245, 252, 251, 0.88);
+	--tertiary: rgb(72, 129, 51);
+	--background: rgba(245, 252, 251, 0.878);
 	--footer: rgb(215 221 224 / 60%);
 	--form: rgb(245 252 251);
-	--surface: rgb(215, 221, 224);
+	--surface: rgb(245 252 251);
 	--shadow: rgb(0 0 0 / 8%);
 	--shadow-hover: rgb(0 0 0 / 16%);
 	--error: rgba(250, 36, 12, 0.94);
@@ -27,14 +32,14 @@
 	--on-background-high: rgba(13, 13, 13, 0.87);
 	--on-background-medium: rgba(13, 13, 13, 0.6);
 	--on-background-disabled: rgba(255, 255, 255, 0.38);
-	--on-surface: rgba(13, 13, 13, 1);
-	--on-surface-high: rgba(13, 13, 13, 0.87);
-	--on-surface-medium: rgba(13, 13, 13, 0.6);
-	--on-surface-disabled: rgba(13, 13, 13, 0.38);
+	--on-surface: rgba(26, 26, 26, 1);
+	--on-surface-high: rgba(26, 26, 26, 0.87);
+	--on-surface-medium: rgba(26, 26, 26, 0.6);
+	--on-surface-disabled: rgba(26, 26, 26, 0.38);
 	--on-error: rgba(253, 253, 253, 1);
 }
 /* Dark Mode Colour Variables */
-[data-theme='dark'] {
+[data-theme="dark"] {
 	/* Colors */
 	--primary: rgba(180, 117, 201, 1);
 	--primary-variant: rgba(134, 114, 214, 1);
@@ -62,6 +67,7 @@
 body {
 	color: var(--on-background-medium);
 	background: var(--background);
+	font-family: var(--font-inter);
 }
 .high {
 	color: var(--on-background-high);
@@ -72,6 +78,7 @@ body {
 }
 main {
 	background-color: var(--background);
+	overflow: hidden;
 }
 /***End of Colour Variables***/
 
@@ -92,10 +99,10 @@ h2,
 h3,
 h4,
 h5,
-h6,
+a,
 .subtitle_1,
 .subtitle_2 {
-	font-family: var(--font-poppins);
+	font-family: var(--font-poppins) !important;
 }
 h1,
 h1 > strong {
@@ -138,7 +145,8 @@ h6 {
 	font-size: 14px;
 	letter-spacing: 0.1px;
 }
-body,
+
+h6,
 .body_1,
 .body_2,
 .button,
@@ -167,6 +175,11 @@ body,
 }
 .uppercase,
 .button {
+	text-transform: uppercase;
+}
+.overline {
+	font-size: 11px;
+	letter-spacing: 1.5px;
 	text-transform: uppercase;
 }
 
@@ -205,6 +218,7 @@ a {
 /***End of Global Resets***/
 /* Reused Components */
 footer {
+	height: var(--footer-height);
 	position: relative;
 	background-image: linear-gradient(
 		to left,
@@ -218,7 +232,7 @@ footer {
 }
 footer::before {
 	position: absolute;
-	content: '';
+	content: "";
 	height: 3px;
 	top: -3px;
 	width: 100%;

@@ -1,21 +1,45 @@
-import { UUID } from 'crypto';
-import Link from 'next/link';
-import { Url } from 'url';
-import styles from './card.module.css';
+import { UUID } from "crypto";
+import Link from "next/link";
+import styles from "./card.module.css";
+import Image from "next/image";
+import placeholderLogo from "../../../../public/Profile_avatar_placeholder_large.png";
 
-interface Props {
-	id: UUID;
-	category: string;
+interface Data {
+	business_id: string;
+	category: "restaurant" | "shop" | "service" | "other" | null;
+	description: string | null;
 	name: string;
-	logo?: Url;
 }
 
-export default function Card({ id, category, name, logo }: Props) {
+export default function Card({ business }: { business: Data }) {
+	const { name, category, description, business_id } = business;
 	return (
-		<Link href={`/directory/business/${id}`}>
-			<div className={styles.card}>
-				<p className='overline'>{category}</p>
-				<h5>{name}</h5>
+		<Link className={styles.card} href={`/directory/business/${business_id}`}>
+			<div className={styles.logo_container}>
+				{/* {logo ? (
+					<Image
+						src={logo}
+						alt="Business Logo"
+						width={100}
+						style={{ objectFit: "contain" }}
+					/>
+				) : ( */}
+				<Image
+					src={placeholderLogo}
+					alt="Placeholder Business Logo"
+					width={100}
+					style={{ objectFit: "contain" }}
+				/>
+				{/* )} */}
+			</div>
+			<div className={styles.card_overline}>
+				<p className="overline">{category}</p>
+			</div>
+			<div className={styles.card_name}>
+				<h6>
+					<b></b>
+					{name}
+				</h6>
 			</div>
 		</Link>
 	);

@@ -59,7 +59,7 @@
 	z-index: 2;
 }
 .image_container::before {
-	content: '';
+	content: "";
 	position: absolute;
 	z-index: -1;
 	height: 90%;
@@ -78,7 +78,7 @@
 		inset 0 0 5px 3px var(--background);
 }
 .image_container::after {
-	content: '';
+	content: "";
 	position: absolute;
 	z-index: 1;
 	height: 400px;
@@ -148,7 +148,7 @@
 .grid_top_border::before,
 .grid_bottom_border::before {
 	--offset: 10vw;
-	content: '';
+	content: "";
 	position: absolute;
 	left: calc(var(--offset) / 2 * -1);
 	height: 3px;
@@ -206,11 +206,9 @@
 		);
 	background-origin: border-box;
 	background-clip: padding-box, border-box;
-	--box-shadow: 0 -3px 5px 5px var(--shadow);
 	box-shadow: var(--box-shadow);
 }
 .map:hover {
-	--box-shadow-hover: 0 -2px 6px 6px var(--shadow-hover);
 	box-shadow: var(--box-shadow-hover);
 }
 
@@ -261,7 +259,7 @@
 	.about_container::before,
 	.about_container::after {
 		position: absolute;
-		content: '';
+		content: "";
 		bottom: 0;
 		height: 100%;
 		width: 3px;
@@ -304,7 +302,7 @@
 	}
 	/* X Axis Left-to-Right Gradient Border */
 	.about_grid > .about_grid_section:nth-child(1)::after {
-		content: '';
+		content: "";
 		position: absolute;
 		bottom: -2px;
 		left: 0;
@@ -322,7 +320,7 @@
 		border-left: solid 3px transparent;
 	}
 	.about_grid > .about_grid_section:nth-child(2)::before {
-		content: '';
+		content: "";
 		position: absolute;
 		top: 0px;
 		left: -3px;
