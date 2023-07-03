@@ -1,3 +1,11 @@
+import { MultiStepForm } from "./components/MultiStepForm";
+
 export default function Page() {
-	return <h1>New Business Page</h1>;
+	return (
+		<main>
+			<div className="container">
+				<MultiStepForm />
+			</div>
+		</main>
+	);
 }
