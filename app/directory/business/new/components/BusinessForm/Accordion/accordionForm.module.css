@@ -7,62 +7,56 @@ fieldset.fieldset {
 	padding: 0;
 }
 
-input.input {
-	border: 1px solid hsl(0deg 0% 42%);
-	border-radius: 0.3em;
-	display: block;
-	font-size: inherit;
-	padding: 0.3em 0.5em;
-}
-
 /* Accordion Element */
 .accordion {
 	margin: 0;
 	padding: 0;
-	border: 2px solid transparent;
-	border-radius: var(--border-radius);
 	width: 100%;
 }
-.accordion h3 {
-	margin: 0;
-	padding: 0;
-}
-.accordion:focus-within {
-	border-color: var(--secondary);
-}
-.accordion:focus-within h3 {
-	background-color: rgba(var(--primary-variant), 0.1);
-}
-.accordion > * + * {
-	border-top: 2px solid hsl(0deg 0% 52%);
-}
 
+.accordion:focus-within {
+	border-color: 2px solid var(--secondary);
+}
+/* .accordion > * + * {
+	border-top: 2px solid hsl(0deg 0% 52%);
+} */
+
+/*
 /* Border on first and last child of Accordion */
 .accordion > *:first-child .accordion_trigger,
 .accordion > *:first-child {
 	border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
-.accordion > *:last-child .accordion_trigger,
-.accordion > *:last-child {
-	border-radius: 0 0 var(--border-radius) var(--border-radius);
-}
+/* 
 
 /* Trigger */
 .accordion_trigger {
-	/* background: inherit; */
 	border: 2px solid var(--primary);
 	color: var(--on-surface-high);
 	display: block;
 	margin: 0;
-	padding: 1em 1.5em;
+	padding: 1.25rem;
 	position: relative;
 	text-align: left;
 	width: 100%;
 	outline: none;
 }
+.accordion_add_button {
+	width: 100%;
+	border: 2px solid var(--primary);
+	height: 2.5rem;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+.accordion_add_button:disabled {
+	cursor: not-allowed;
+}
+.accordion_add_button::after {
+	border-radius: 0 0 var(--border-radius) var(--border-radius) !important;
+}
 .accordion_trigger:focus {
 	outline: 4px solid transparent;
 }
+/* 
 .accordion_trigger:focus .accordion_title {
 	border-color: hsl(216deg 94% 43%);
 }
@@ -75,20 +69,20 @@ input.input {
 .accordion_trigger:hover .accordion_icon {
 	border-color: hsl(216deg 94% 43%);
 }
-.accordion_trigger[aria-expanded='true'] .accordion-icon {
+.accordion_trigger[aria-expanded="true"] .accordion-icon {
 	transform: translateY(-50%) rotate(-135deg);
-}
+} */
 /* Title */
-.accordion > .accordion_title {
+/* .accordion > .accordion_title {
 	display: block;
 	pointer-events: none;
 	border: transparent 2px solid;
 	border-radius: var(--border-radius);
 	padding: 0.25em;
 	outline: none;
-}
+} */
 /* Icon */
-.accordion > .accordion_title .accordion-icon {
+/* .accordion > .accordion_title .accordion-icon {
 	border: solid currentcolor;
 	border-width: 0 2px 2px 0;
 	height: 0.5rem;
@@ -103,27 +97,27 @@ input.input {
 	margin: 0;
 	padding: 1em 1.5em;
 	border-radius: var(--border-radius);
-}
+} */
 
 /* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
-.accordion-panel[hidden] {
+/* .accordion-panel[hidden] {
 	display: none;
-}
+} */
 
 /* Radio */
-.radio[role='radiogroup'] {
+/* .radio[role="radiogroup"] {
 	padding: 0;
 	margin: 0;
 	list-style: none;
 }
-.radio[role='radiogroup']:focus {
+.radio[role="radiogroup"]:focus {
 	outline: none;
 }
-.radio[role='radiogroup'] .radio_list {
+.radio[role="radiogroup"] .radio_list {
 	display: inline-block;
 	padding-inline: 0.5em;
 }
-.radio[role='radiogroup'] .radio_list input.radio_item[role='radio'] {
+.radio[role="radiogroup"] .radio_list input.radio_item[role="radio"] {
 	border-radius: 5px;
 	border: 0 solid transparent;
 	display: inline-block;
@@ -131,19 +125,19 @@ input.input {
 	cursor: default;
 	outline: none;
 }
-.radio[role='radiogroup']
+.radio[role="radiogroup"]
 	.radio_list
-	input.radio_item[role='radio']
-	+ input.radio_item[role='radio'] {
+	input.radio_item[role="radio"]
+	+ input.radio_item[role="radio"] {
 	margin-left: 0.5em;
 }
-.radio[role='radiogroup'] .radio_list input.radio_item[role='radio'] + label {
+.radio[role="radiogroup"] .radio_list input.radio_item[role="radio"] + label {
 	padding-inline: 0.25em;
 }
-.radio[role='radiogroup'] .radio_list input.radio_item[role='radio']:focus,
-.radio[role='radiogroup'] .radio_list input.radio_item[role='radio']:hover {
+.radio[role="radiogroup"] .radio_list input.radio_item[role="radio"]:focus,
+.radio[role="radiogroup"] .radio_list input.radio_item[role="radio"]:hover {
 	padding: 2px 6px;
 	border: 2px solid #005a9c;
 	background-color: #def;
 	cursor: pointer;
-}
+} */

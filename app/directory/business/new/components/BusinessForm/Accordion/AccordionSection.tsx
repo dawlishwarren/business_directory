@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import AccordionHeader from './AccordionHeader';
-import AccordionPanel from './AccordionPanel';
-import { SectionProps } from '../FormTypes';
+import React, { useState } from "react";
+import AccordionHeader from "./AccordionHeader";
+import AccordionPanel from "./AccordionPanel";
+import { SectionProps } from "../FormTypes";
 
 const AccordionSection = ({
 	id,
@@ -23,7 +23,7 @@ const AccordionSection = ({
 			<AccordionPanel
 				id={ariaSection}
 				ariaLabel={id}
-				hidden={active ? true : false}>
+				hidden={active ? false : true}>
 				{children}
 			</AccordionPanel>
 		</>
