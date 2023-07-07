@@ -1,0 +1,29 @@
+.form_title {
+	text-align: center;
+}
+.form {
+	background-color: var(--surface);
+	color: var(--on-surface-medium);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	border-radius: var(--border-radius);
+	padding: 2.5rem;
+}
+.form > * {
+	padding: 1.25rem;
+}
+.form > .step_nav_container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+.form > .step_nav_container > .step_nav_buttons {
+	display: flex;
+	padding-top: 1rem;
+}
+.form > .step_nav_container > .step_nav_buttons > .step_nav_button {
+	margin-inline: 1.25rem;
+}

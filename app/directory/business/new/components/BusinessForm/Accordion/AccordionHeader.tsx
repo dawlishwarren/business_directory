@@ -1,13 +1,13 @@
-import React from "react";
-import styles from "./accordionForm.module.css";
-import { HeaderProps } from "./AccordionTypes";
+import React from 'react';
+import styles from './accordionForm.module.css';
+import { HeaderProps } from '../FormTypes';
 
 const AccordionHeader = ({ id, ariaSection, title, onClick }: HeaderProps) => {
 	return (
 		<h3>
 			<button
-				type="button"
-				aria-expanded="true"
+				type='button'
+				aria-expanded='true'
 				className={styles.accordion_trigger}
 				id={id}
 				aria-controls={ariaSection}

@@ -1,11 +1,11 @@
-import styles from "./accordionForm.module.css";
-import { PanelProps } from "./AccordionTypes";
+import styles from './accordionForm.module.css';
+import { PanelProps } from '../FormTypes';
 
 const AccordionPanel = ({ id, ariaLabel, children, hidden }: PanelProps) => {
 	return (
 		<div
 			id={id}
-			role="region"
+			role='region'
 			aria-labelledby={ariaLabel}
 			hidden={hidden}
 			className={`${styles.accordion_panel} ${styles.button}`}>

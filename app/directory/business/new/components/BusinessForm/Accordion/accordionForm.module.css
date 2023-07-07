@@ -19,41 +19,40 @@ input.input {
 .accordion {
 	margin: 0;
 	padding: 0;
-	border: 2px solid hsl(0deg 0% 52%);
-	border-radius: 7px;
-	width: 20em;
+	border: 2px solid transparent;
+	border-radius: var(--border-radius);
+	width: 100%;
 }
 .accordion h3 {
 	margin: 0;
 	padding: 0;
 }
 .accordion:focus-within {
-	border-color: hsl(216deg 94% 43%);
+	border-color: var(--secondary);
 }
 .accordion:focus-within h3 {
-	background-color: hsl(0deg 0% 97%);
+	background-color: rgba(var(--primary-variant), 0.1);
 }
 .accordion > * + * {
-	border-top: 1px solid hsl(0deg 0% 52%);
+	border-top: 2px solid hsl(0deg 0% 52%);
 }
 
 /* Border on first and last child of Accordion */
 .accordion > *:first-child .accordion_trigger,
 .accordion > *:first-child {
-	border-radius: 5px 5px 0 0;
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 .accordion > *:last-child .accordion_trigger,
 .accordion > *:last-child {
-	border-radius: 0 0 5px 5px;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
 /* Trigger */
 .accordion_trigger {
-	background: none;
-	color: hsl(0deg 0% 13%);
+	/* background: inherit; */
+	border: 2px solid var(--primary);
+	color: var(--on-surface-high);
 	display: block;
-	font-size: 1rem;
-	font-weight: normal;
 	margin: 0;
 	padding: 1em 1.5em;
 	position: relative;
@@ -63,19 +62,20 @@ input.input {
 }
 .accordion_trigger:focus {
 	outline: 4px solid transparent;
-	.accordion_title {
-		border-color: hsl(216deg 94% 43%);
-	}
+}
+.accordion_trigger:focus .accordion_title {
+	border-color: hsl(216deg 94% 43%);
 }
 .accordion_trigger:focus,
 .accordion_trigger:hover {
-	background: hsl(216deg 94% 94%);
+	background: var(--primary);
+	color: var(--on-primary-high);
 }
 .accordion_trigger:focus .accordion_icon,
 .accordion_trigger:hover .accordion_icon {
 	border-color: hsl(216deg 94% 43%);
 }
-.accordion_trigger[aria-expanded="true"] .accordion-icon {
+.accordion_trigger[aria-expanded='true'] .accordion-icon {
 	transform: translateY(-50%) rotate(-135deg);
 }
 /* Title */
@@ -83,7 +83,7 @@ input.input {
 	display: block;
 	pointer-events: none;
 	border: transparent 2px solid;
-	border-radius: 5px;
+	border-radius: var(--border-radius);
 	padding: 0.25em;
 	outline: none;
 }
@@ -102,6 +102,7 @@ input.input {
 .accordion .accordion_panel {
 	margin: 0;
 	padding: 1em 1.5em;
+	border-radius: var(--border-radius);
 }
 
 /* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
@@ -110,19 +111,19 @@ input.input {
 }
 
 /* Radio */
-.radio[role="radiogroup"] {
+.radio[role='radiogroup'] {
 	padding: 0;
 	margin: 0;
 	list-style: none;
 }
-.radio[role="radiogroup"]:focus {
+.radio[role='radiogroup']:focus {
 	outline: none;
 }
-.radio[role="radiogroup"] .radio_list {
+.radio[role='radiogroup'] .radio_list {
 	display: inline-block;
 	padding-inline: 0.5em;
 }
-.radio[role="radiogroup"] .radio_list input.radio_item[role="radio"] {
+.radio[role='radiogroup'] .radio_list input.radio_item[role='radio'] {
 	border-radius: 5px;
 	border: 0 solid transparent;
 	display: inline-block;
@@ -130,17 +131,17 @@ input.input {
 	cursor: default;
 	outline: none;
 }
-.radio[role="radiogroup"]
+.radio[role='radiogroup']
 	.radio_list
-	input.radio_item[role="radio"]
-	+ input.radio_item[role="radio"] {
+	input.radio_item[role='radio']
+	+ input.radio_item[role='radio'] {
 	margin-left: 0.5em;
 }
-.radio[role="radiogroup"] .radio_list input.radio_item[role="radio"] + label {
+.radio[role='radiogroup'] .radio_list input.radio_item[role='radio'] + label {
 	padding-inline: 0.25em;
 }
-.radio[role="radiogroup"] .radio_list input.radio_item[role="radio"]:focus,
-.radio[role="radiogroup"] .radio_list input.radio_item[role="radio"]:hover {
+.radio[role='radiogroup'] .radio_list input.radio_item[role='radio']:focus,
+.radio[role='radiogroup'] .radio_list input.radio_item[role='radio']:hover {
 	padding: 2px 6px;
 	border: 2px solid #005a9c;
 	background-color: #def;

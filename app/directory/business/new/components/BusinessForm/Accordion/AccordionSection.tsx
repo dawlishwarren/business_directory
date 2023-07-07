@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import AccordionHeader from "./AccordionHeader";
-import AccordionPanel from "./AccordionPanel";
-import { SectionProps } from "./AccordionTypes";
+import React, { useState } from 'react';
+import AccordionHeader from './AccordionHeader';
+import AccordionPanel from './AccordionPanel';
+import { SectionProps } from '../FormTypes';
 
 const AccordionSection = ({
 	id,

@@ -59,7 +59,7 @@
 	z-index: 2;
 }
 .image_container::before {
-	content: "";
+	content: '';
 	position: absolute;
 	z-index: -1;
 	height: 90%;
@@ -78,7 +78,7 @@
 		inset 0 0 5px 3px var(--background);
 }
 .image_container::after {
-	content: "";
+	content: '';
 	position: absolute;
 	z-index: 1;
 	height: 400px;
@@ -92,6 +92,9 @@
 @media (min-width: 960px) {
 	.buttons_container {
 		grid-column: 1 / span 1;
+	}
+	.buttons_container > * {
+		margin-block: 2.5rem;
 	}
 	.buttons_container .search_button {
 		display: block;
@@ -148,7 +151,7 @@
 .grid_top_border::before,
 .grid_bottom_border::before {
 	--offset: 10vw;
-	content: "";
+	content: '';
 	position: absolute;
 	left: calc(var(--offset) / 2 * -1);
 	height: 3px;
@@ -259,7 +262,7 @@
 	.about_container::before,
 	.about_container::after {
 		position: absolute;
-		content: "";
+		content: '';
 		bottom: 0;
 		height: 100%;
 		width: 3px;
@@ -302,7 +305,7 @@
 	}
 	/* X Axis Left-to-Right Gradient Border */
 	.about_grid > .about_grid_section:nth-child(1)::after {
-		content: "";
+		content: '';
 		position: absolute;
 		bottom: -2px;
 		left: 0;
@@ -320,7 +323,7 @@
 		border-left: solid 3px transparent;
 	}
 	.about_grid > .about_grid_section:nth-child(2)::before {
-		content: "";
+		content: '';
 		position: absolute;
 		top: 0px;
 		left: -3px;

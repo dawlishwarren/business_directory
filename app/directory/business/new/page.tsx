@@ -1,9 +1,10 @@
-import { MultiStepForm } from "./components/MultiStepForm";
+'use client';
+import { MultiStepForm } from './components/BusinessForm/MultiStepForm';
 
 export default function Page() {
 	return (
 		<main>
-			<div className="container">
+			<div className='container'>
 				<MultiStepForm />
 			</div>
 		</main>

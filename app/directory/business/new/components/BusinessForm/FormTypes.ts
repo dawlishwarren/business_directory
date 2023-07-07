@@ -1,8 +1,8 @@
-import { ReactElement } from "react";
-import { FormikHandlers } from "formik";
+import { ReactElement } from 'react';
+import { FormikHandlers } from 'formik';
 export interface FormValues {
-	businessName: string;
-	businessDescription: string;
+	name: string;
+	description: string;
 	category: string;
 	addresses: AddressValues[];
 	contacts: ContactValues[];
@@ -16,9 +16,9 @@ export interface FieldInputProps<Value> {
 	/** Is the field checked? */
 	checked?: boolean;
 	/** Change event handler */
-	onChange: FormikHandlers["handleChange"];
+	onChange: FormikHandlers['handleChange'];
 	/** Blur event handler */
-	onBlur: FormikHandlers["handleBlur"];
+	onBlur: FormikHandlers['handleBlur'];
 }
 export interface AddressValues {
 	line_1: string;
