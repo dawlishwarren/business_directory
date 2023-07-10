@@ -1,17 +1,13 @@
 button.button {
 	border-style: none;
 }
-fieldset.fieldset {
-	border: 0;
-	margin: 0;
-	padding: 0;
-}
 
 /* Accordion Element */
 .accordion {
 	margin: 0;
 	padding: 0;
 	width: 100%;
+	background-color: var(--surface);
 }
 
 .accordion:focus-within {
@@ -31,21 +27,22 @@ fieldset.fieldset {
 
 /* Trigger */
 .accordion_trigger {
-	border: 2px solid var(--primary);
-	color: var(--on-surface-high);
 	display: block;
 	margin: 0;
 	padding: 1.25rem;
 	position: relative;
 	text-align: left;
-	width: 100%;
 	outline: none;
 }
 .accordion_add_button {
-	width: 100%;
-	border: 2px solid var(--primary);
-	height: 2.5rem;
 	border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+.accordion_trigger,
+.accordion_add_button {
+	border: 2px solid var(--primary);
+	color: var(--on-surface-medium);
+	background: var(--surface) !important;
+	width: 100%;
 }
 .accordion_add_button:disabled {
 	cursor: not-allowed;
@@ -53,18 +50,22 @@ fieldset.fieldset {
 .accordion_add_button::after {
 	border-radius: 0 0 var(--border-radius) var(--border-radius) !important;
 }
-.accordion_trigger:focus {
-	outline: 4px solid transparent;
+
+.accordion_remove_button {
+	margin: 2rem auto;
 }
-/* 
-.accordion_trigger:focus .accordion_title {
-	border-color: hsl(216deg 94% 43%);
-}
+.accordion_remove_button:hover,
+.accordion_remove_button:focus,
+.accordion_add_button:hover,
+.accordion_add_button:focus,
 .accordion_trigger:focus,
 .accordion_trigger:hover {
-	background: var(--primary);
-	color: var(--on-primary-high);
+	outline: 3px solid var(--secondary);
+	background: var(--background) !important;
+	color: var(--on-background-high);
 }
+
+/* 
 .accordion_trigger:focus .accordion_icon,
 .accordion_trigger:hover .accordion_icon {
 	border-color: hsl(216deg 94% 43%);
@@ -73,16 +74,14 @@ fieldset.fieldset {
 	transform: translateY(-50%) rotate(-135deg);
 } */
 /* Title */
-/* .accordion > .accordion_title {
+.accordion > .accordion_title {
 	display: block;
 	pointer-events: none;
-	border: transparent 2px solid;
-	border-radius: var(--border-radius);
-	padding: 0.25em;
+	cursor: pointer;
 	outline: none;
-} */
+}
 /* Icon */
-/* .accordion > .accordion_title .accordion-icon {
+.accordion > .accordion_title .accordion-icon {
 	border: solid currentcolor;
 	border-width: 0 2px 2px 0;
 	height: 0.5rem;
@@ -95,15 +94,72 @@ fieldset.fieldset {
 }
 .accordion .accordion_panel {
 	margin: 0;
-	padding: 1em 1.5em;
-	border-radius: var(--border-radius);
-} */
+	padding: 1.25rem;
+	/* border: black 2px solid; */
+	position: relative;
+}
+.accordion_panel::before,
+.accordion_panel::after {
+	position: absolute;
+	content: '';
+	bottom: 0;
+	height: 100%;
+	width: 3px;
+}
+.accordion_panel::before {
+	left: 0;
+	background-image: linear-gradient(
+		var(--primary) 1.04%,
+		var(--primary-variant) 19.79%,
+		var(--primary-variant) 80.21%,
+		var(--primary) 98.96%
+	);
+	z-index: 2;
+}
+.accordion_panel::after {
+	right: 0;
+	background-image: linear-gradient(
+		var(--primary) 1.04%,
+		var(--primary-variant) 19.79%,
+		var(--primary-variant) 80.21%,
+		var(--primary) 98.96%
+	);
+	z-index: 2;
+}
 
 /* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
-/* .accordion-panel[hidden] {
+.accordion-panel[hidden] {
 	display: none;
-} */
+}
+fieldset.fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+fieldset.fieldset .accordion_field {
+	width: 100%;
+	font-size: 18px;
+	padding-block: 1rem;
+	padding-inline: 2rem;
+	display: flex;
+	flex-direction: column;
+}
 
+fieldset.fieldset .accordion_field label {
+	padding-left: 1rem;
+}
+fieldset.fieldset .accordion_field input {
+	margin-top: 0.5rem;
+	padding: 1rem;
+	width: 100%;
+	border-radius: var(--border-radius);
+	border: 2px solid var(--primary);
+}
+
+.contact_paragraph {
+	margin-top: 2.5rem;
+}
 /* Radio */
 /* .radio[role="radiogroup"] {
 	padding: 0;

@@ -13,7 +13,7 @@ const AccordionField = ({
 	section,
 }: FieldProps) => {
 	return (
-		<div>
+		<div className={styles.accordion_field}>
 			<label htmlFor={id}>
 				{label}
 				{required && (
