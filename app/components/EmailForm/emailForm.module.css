@@ -5,8 +5,6 @@
 	--stack-justify: center;
 	--stack-padding: 16px;
 	--stack-gap: 32px;
-	--box-shadow: 2px 4px 8px var(--shadow);
-	--box-shadow-hover: 2px 4px 16px var(--shadow-hover);
 	display: flex;
 	flex-direction: var(--stack-direction);
 	align-items: center;

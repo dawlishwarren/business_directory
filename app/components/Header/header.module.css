@@ -14,7 +14,7 @@
 }
 .header::after {
 	position: absolute;
-	content: "";
+	content: '';
 	bottom: 0;
 	height: 3px;
 	width: 100%;
@@ -39,9 +39,15 @@
 	align-items: center;
 	gap: 8px;
 }
+.nav > a:focus-visible {
+	outline: 3px solid var(--primary-variant);
+	outline-offset: 3px;
+}
 h5.disabled {
-	text-decoration: underline;
+	text-decoration: underline 3px var(--primary);
+	text-underline-offset: 4px;
 	cursor: auto;
+	color: var(--on-background-high);
 }
 h5.nav_link {
 	position: relative;
@@ -62,27 +68,34 @@ h5.nav_link {
 h5.nav_link:hover {
 	background-position: 0 100%;
 }
-.header > * > a:focus-within > h5 {
+
+/* .header > * > a:focus-within > h5 {
 	color: var(--tertiary);
 	-webkit-text-fill-color: inherit;
-}
+} */
 nav.nav,
-.theme_changer,
+.theme_changer_container,
 .login {
 	width: 100%;
 }
-
-.theme_changer {
+.theme_changer_container {
 	display: flex;
-	position: relative;
 	min-height: 100%;
 	align-items: center;
 	justify-content: center;
+	position: relative;
+}
+
+.theme_changer {
 	background: none;
 	border: none;
+	display: flex;
+	border-radius: 50%;
+	padding: 0;
 }
 .theme_changer:focus {
-	border: 1px solid black;
+	outline-style: none;
+	box-shadow: 0 0 0 3px var(--background), 0 0 0 6px var(--primary);
 }
 .theme_changer > img:hover,
 .theme_changer:focus > img {
@@ -91,25 +104,63 @@ nav.nav,
 .theme_changer > img {
 	transition: all 0.6s ease-in-out;
 }
-
-.theme_changer > dialog > .dialog_content {
+.theme_changer + dialog {
+	height: 75svh;
+	border: 2px solid transparent;
+	border-radius: var(--border-radius);
+	color: var(--on-surface-high);
+	filter: drop-shadow(0 8px 30px 0, 0, 0, 0.12);
+	border: 3px solid transparent;
+	box-shadow: var(--box-shadow);
+	background-image: linear-gradient(var(--form), var(--form)),
+		linear-gradient(
+			calc(var(--gradient-rotation)),
+			var(--secondary) 0,
+			var(--primary) 20%,
+			var(--primary-variant) 80%
+		);
+	background-origin: border-box;
+	background-clip: padding-box, border-box;
+	position: relative;
+}
+.theme_changer + dialog > .dialog_content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+}
+.theme_changer + dialog > .dialog_content .options {
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
 	width: 100%;
 	height: 100%;
-	margin: 0 auto;
-	padding: 1rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	padding-inline: 1rem;
 }
-.theme_changer > dialog > .dialog_content > .options {
-	display: flex;
-}
-.theme_changer > dialog > .dialog_content > button {
-	align-self: flex-end;
+
+.theme_changer + dialog > .dialog_content .options > * {
+	min-width: 100%;
 }
 
 @media (min-width: 480px) {
 	.nav {
 		gap: 50px;
+	}
+	.theme_changer + dialog > .dialog_content {
+		width: 100%;
+		height: 100%;
+		margin: 0 auto;
+		padding: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.theme_changer + dialog > .dialog_content > .options {
+		display: flex;
+	}
+	.theme_changer + dialog > .dialog_content > button {
+		align-self: flex-end;
 	}
 }

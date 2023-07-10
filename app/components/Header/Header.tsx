@@ -33,7 +33,7 @@ export default function Header() {
 					</h5>
 				</Link>
 			</nav>
-			<div className={styles.theme_changer}>
+			<div className={styles.theme_changer_container}>
 				<ThemeChanger />
 			</div>
 		</header>

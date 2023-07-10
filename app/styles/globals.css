@@ -39,7 +39,7 @@
 	--on-error: rgba(253, 253, 253, 1);
 }
 /* Dark Mode Colour Variables */
-[data-theme="dark"] {
+[data-theme='dark'] {
 	/* Colors */
 	--primary: rgba(180, 117, 201, 1);
 	--primary-variant: rgba(134, 114, 214, 1);
@@ -48,7 +48,7 @@
 	--form: rgb(33, 35, 38);
 	--surface: rgba(33, 35, 38, 1);
 	--shadow: rgb(180 117 201 / 4%);
-	--shadow-hover: rgb(180 117 201 / 8%);
+	--shadow-hover: rgb(253 253 253 / 16%);
 	--error: rgba(250, 36, 12, 0.94);
 
 	/* On Colors */
@@ -232,7 +232,7 @@ footer {
 }
 footer::before {
 	position: absolute;
-	content: "";
+	content: '';
 	height: 3px;
 	top: -3px;
 	width: 100%;
