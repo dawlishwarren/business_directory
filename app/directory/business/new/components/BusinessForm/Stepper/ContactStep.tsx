@@ -29,8 +29,8 @@ export function ContactStep() {
 												<div>
 													<fieldset className={styles.fieldset}>
 														<AccordionField
-															id={`contacts.${index}.phone`}
-															name={`contacts.${index}.phone`}
+															id={`contacts[${index}].phone`}
+															name={`contacts[${index}].phone`}
 															type='text'
 															label='Phone Number'
 															placeholder=''
@@ -39,8 +39,8 @@ export function ContactStep() {
 															section='contact'
 														/>
 														<AccordionField
-															id={`contacts.${index}.email`}
-															name={`contacts.${index}.email`}
+															id={`contacts[${index}].email`}
+															name={`contacts[${index}].email`}
 															type='email'
 															label='Email'
 															placeholder=''
@@ -49,8 +49,8 @@ export function ContactStep() {
 															section='contact'
 														/>
 														<AccordionField
-															id={`contacts.${index}.website`}
-															name={`contacts.${index}.website`}
+															id={`contacts[${index}].website`}
+															name={`contacts[${index}].website`}
 															type='website'
 															label='Website'
 															placeholder=''

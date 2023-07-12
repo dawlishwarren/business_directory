@@ -1,5 +1,5 @@
 'use client';
-import { ErrorMessage, Field } from 'formik';
+import { ErrorMessage, Field, FormikBag } from 'formik';
 import { FormValues, Category } from './FormTypes';
 import * as Yup from 'yup';
 
@@ -9,7 +9,7 @@ import { ContactStep } from './Stepper/ContactStep';
 import { AddressStep } from './Stepper/AddressStep';
 
 import styles from './businessForm.module.css';
-
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 export const categoryOptions: Category[] = [
 	{ id: 'shop', value: 'Shop' },
 	{ id: 'service', value: 'Service' },
@@ -22,14 +22,6 @@ export const MultiStepForm = () => {
 		description: '',
 		category: 'Other',
 		addresses: [
-			{
-				line_1: '',
-				line_2: '',
-				line_3: '',
-				line_4: '',
-				town: '',
-				postcode: '',
-			},
 			{
 				line_1: '',
 				line_2: '',
@@ -52,9 +44,12 @@ export const MultiStepForm = () => {
 			<h1 className={styles.form_title}>Signup</h1>
 			<StepWrapper
 				initialValues={initialValues}
-				onSubmit={() => console.log('Step')}>
+				onSubmit={async (values: FormValues) =>
+					sleep(300).then(() => console.log('Form submit', values))
+				}>
+				{/* Step 1: Basic Details */}
 				<Step
-					onSubmit={() => console.log('Step1 onsubmit')}
+					onSubmit={() => console.log('Step 1 Submitted')}
 					validationSchema={Yup.object({
 						name: Yup.string().required('Input Required!'),
 						description: Yup.string().required('Description Required!'),
@@ -78,7 +73,11 @@ export const MultiStepForm = () => {
 							placeholder='Business Name'
 							type='text'
 						/>
-						<ErrorMessage className='error' component='div' name='name' />
+						<ErrorMessage
+							className={`${styles.form_error} error`}
+							component='div'
+							name='name'
+						/>
 					</div>
 					<div className={styles.field_container}>
 						<label htmlFor='category'>
@@ -102,7 +101,11 @@ export const MultiStepForm = () => {
 							))}
 						</div>
 
-						<ErrorMessage className='error' component='div' name='category' />
+						<ErrorMessage
+							className={`${styles.form_error} error`}
+							component='div'
+							name='category'
+						/>
 					</div>
 					<div className={styles.field_container}>
 						<label htmlFor='description'>
@@ -117,40 +120,48 @@ export const MultiStepForm = () => {
 							type='text'
 						/>
 						<ErrorMessage
-							className='error'
+							className={`${styles.form_error} error`}
 							component='div'
 							name='description'
 						/>
 					</div>
 				</Step>
-				{/* End of Basic Details */}
+				{/* End of Step 1: Basic Details */}
 				{/* Step 2: Address Details */}
-
 				<Step
-					onSubmit={() => console.log('Step 3 onSubmit')}
-					validationSchema={Yup.object({
-						website: Yup.string().required('Required'),
-						email: Yup.string()
-							.email('Invalid email address')
-							.required('Required'),
-						phone: Yup.string().required('Required'),
+					onSubmit={() => console.log('Step 2 submitted')}
+					validationSchema={Yup.object().shape({
+						addresses: Yup.array().of(
+							Yup.object({
+								line_1: Yup.string().required('Required'),
+								line_2: Yup.string().notRequired(),
+								line_3: Yup.string().notRequired(),
+								line_4: Yup.string().notRequired(),
+								town: Yup.string().required('Required'),
+								postcode: Yup.string().required('Required'),
+							})
+						),
 					})}>
 					<h3 className={styles.step_title}>Business Address Information</h3>
 
 					<AddressStep />
 				</Step>
+				{/* End of Step 2: Address Details */}
+				{/* Step 3: Contact Details */}
 				<Step
-					onSubmit={() => console.log('Step2 onSubmit')}
-					validationSchema={Yup.object({
-						line_1: Yup.string().required('Required'),
-						line_2: Yup.string().notRequired(),
-						line_3: Yup.string().notRequired(),
-						line_4: Yup.string().notRequired(),
-						town: Yup.string().required(),
-						postcode: Yup.string().required(),
+					onSubmit={() => console.log('Step 3 submitted')}
+					validationSchema={Yup.object().shape({
+						contacts: Yup.array().of(
+							Yup.object({
+								email: Yup.string()
+									.email('Invalid email address')
+									.required('Required'),
+								phone: Yup.string().required('Required'),
+								website: Yup.string().notRequired(),
+							})
+						),
 					})}>
 					<h3 className={styles.step_title}>Contact Information</h3>
-
 					<ContactStep />
 				</Step>
 			</StepWrapper>

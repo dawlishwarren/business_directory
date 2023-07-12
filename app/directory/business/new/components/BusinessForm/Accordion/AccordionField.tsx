@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './accordionForm.module.css';
+import formStyles from '../businessForm.module.css';
 import { Field, ErrorMessage } from 'formik';
 import { FieldProps } from '../FormTypes';
 
@@ -9,7 +10,7 @@ const AccordionField = ({
 	label,
 	placeholder,
 	required,
-	index,
+	name,
 	section,
 }: FieldProps) => {
 	return (
@@ -26,12 +27,16 @@ const AccordionField = ({
 			<Field
 				id={id}
 				type={type}
-				name={id}
+				name={name}
 				placeholder={placeholder}
 				className={required ? styles.required : ''}
 				aria-required={required ? 'true' : 'false'}
 			/>
-			<ErrorMessage name={`${section}.${index}.line_1`} component='div' />
+			<ErrorMessage
+				name={`${name}`}
+				component='div'
+				className={`${formStyles.form_error} error`}
+			/>
 		</div>
 	);
 };

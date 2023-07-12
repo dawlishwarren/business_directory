@@ -32,6 +32,19 @@
 	border-radius: var(--border-radius);
 	border: 2px solid var(--primary);
 }
+.form .field_container .field:focus {
+	outline: 3px solid var(--primary);
+}
+.form_error {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-inline: 1.25rem;
+	padding-block: 0.75rem;
+	margin: 1.25rem auto;
+	border-radius: var(--border-radius);
+	width: max-content;
+}
 .textarea {
 	resize: none;
 	font-family: inherit;

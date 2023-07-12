@@ -1,8 +1,9 @@
 import React, { ReactNode, useState } from 'react';
 import { FormValues } from '../FormTypes';
-import { Form, Formik } from 'formik';
+import { Form, Formik, FormikBag, FormikProps, FormikValues } from 'formik';
 import styles from '../businessForm.module.css';
 import buttonStyles from '../../../../../../styles/utilities/button.module.css';
+import { ObjectSchema } from 'yup';
 
 interface StepWrapper {
 	children: ReactNode;
@@ -30,22 +31,35 @@ export function StepWrapper({
 		setSnapShot(values);
 		setStepNumber(Math.max(stepNumber - 1, 0));
 	}
-	async function handleSubmit(values: FormValues, bag: any) {
-		if (React.isValidElement<{ onSubmit: any }>(step)) {
+	async function handleSubmit(
+		values: FormValues,
+		formikBag: FormikBag<FormikProps<FormikValues>, FormikValues>
+	) {
+		if (
+			React.isValidElement<FormikBag<FormikProps<FormikValues>, FormikValues>>(
+				step
+			)
+		) {
 			if (step.props.onSubmit) {
-				await step.props.onSubmit(values, bag);
+				await step.props.onSubmit(values, formikBag);
 			}
 			if (isLastStep) {
-				return step.props.onSubmit(values, bag);
+				return onSubmit(values, formikBag);
 			} else {
-				bag.setTouched({});
+				formikBag.setTouched({});
 				next(values);
 			}
 		}
 	}
 
 	return (
-		<Formik initialValues={snapShot} onSubmit={handleSubmit}>
+		<Formik
+			initialValues={snapShot}
+			onSubmit={handleSubmit}
+			validationSchema={
+				React.isValidElement<{ validationSchema: ObjectSchema }>(step) &&
+				step.props.validationSchema
+			}>
 			{({ values, isSubmitting }) => (
 				<Form aria-label='Business details form' className={styles.form}>
 					{/* Step */}

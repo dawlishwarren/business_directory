@@ -1,4 +1,4 @@
-import { useFormikContext, FieldArray } from 'formik';
+import { useFormikContext, FieldArray, ErrorMessage } from 'formik';
 import { FormValues } from '../FormTypes';
 import AccordionSection from '../Accordion/AccordionSection';
 import AccordionField from '../Accordion/AccordionField';
@@ -23,8 +23,8 @@ export function AddressStep() {
 											<div>
 												<fieldset className={styles.fieldset}>
 													<AccordionField
-														id={`addresses.${index}.line_1`}
-														name={`addresses.${index}.line_1`}
+														id={`addresses[${index}].line_1`}
+														name={`addresses[${index}].line_1`}
 														type='text'
 														label='Line 1'
 														placeholder=''
@@ -33,8 +33,8 @@ export function AddressStep() {
 														section='address'
 													/>
 													<AccordionField
-														id={`addresses.${index}.line_2`}
-														name={`addresses.${index}.line_2`}
+														id={`addresses[${index}].line_2`}
+														name={`addresses[${index}].line_2`}
 														type='text'
 														label='Line 2'
 														placeholder=''
@@ -43,8 +43,8 @@ export function AddressStep() {
 														section='address'
 													/>
 													<AccordionField
-														id={`addresses.${index}.line_3`}
-														name={`addresses.${index}.line_3`}
+														id={`addresses[${index}].line_3`}
+														name={`addresses[${index}].line_3`}
 														type='text'
 														label='Line 3'
 														placeholder=''
@@ -53,8 +53,8 @@ export function AddressStep() {
 														section='address'
 													/>
 													<AccordionField
-														id={`addresses.${index}.line_4`}
-														name={`addresses.${index}.line_4`}
+														id={`addresses[${index}].line_4`}
+														name={`addresses[${index}].line_4`}
 														type='text'
 														label='Line 4'
 														placeholder=''
@@ -63,8 +63,8 @@ export function AddressStep() {
 														section='address'
 													/>
 													<AccordionField
-														id={`addresses.${index}.town`}
-														name={`addresses.${index}.town`}
+														id={`addresses[${index}].town`}
+														name={`addresses[${index}].town`}
 														type='text'
 														label='Town'
 														placeholder=''
@@ -73,8 +73,8 @@ export function AddressStep() {
 														section='address'
 													/>
 													<AccordionField
-														id={`addresses.${index}.postcode`}
-														name={`addresses.${index}.postcode`}
+														id={`addresses[${index}].postcode`}
+														name={`addresses[${index}].postcode`}
 														type='text'
 														label='Postcode'
 														placeholder=''
