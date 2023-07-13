@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import themeChange from '../../../../public/dark-theme-svgrepo-com.svg';
-import styles from '../header.module.css';
-import buttonStyles from '../../../styles/utilities/button.module.css';
-import { useRef } from 'react';
-import { useTheme } from 'next-themes';
+import Image from "next/image";
+import themeChange from "../../../../public/dark-theme-svgrepo-com.svg";
+import styles from "../header.module.css";
+import buttonStyles from "../../../styles/utilities/button.module.css";
+import { useRef } from "react";
+import { useTheme } from "next-themes";
 
 export default function ThemeChanger() {
 	const dialogRef = useRef<any>(null);
@@ -24,8 +24,8 @@ export default function ThemeChanger() {
 				<Image
 					src={themeChange}
 					width={50}
-					style={{ objectFit: 'contain' }}
-					alt='Light/Dark Mode Theme Change'
+					style={{ objectFit: "contain" }}
+					alt="Light/Dark Mode Theme Change"
 				/>
 			</button>
 			<dialog ref={dialogRef}>
@@ -33,7 +33,7 @@ export default function ThemeChanger() {
 					<div className={styles.options}>
 						<button
 							className={`${buttonStyles.button_large} button`}
-							value='system'
+							value="system"
 							onClick={handleClick}
 							onMouseDown={handleClick}>
 							System
@@ -41,14 +41,14 @@ export default function ThemeChanger() {
 
 						<button
 							className={`${buttonStyles.button_large} button`}
-							value='light'
+							value="light"
 							onClick={handleClick}
 							onMouseDown={handleClick}>
 							Light
 						</button>
 						<button
 							className={`${buttonStyles.button_large} button`}
-							value='dark'
+							value="dark"
 							onClick={handleClick}
 							onMouseDown={handleClick}>
 							Dark

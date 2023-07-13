@@ -35,6 +35,10 @@
 	border: 2px solid var(--surface);
 	width: 100%;
 }
+.form input:focus,
+.form textarea:focus {
+	outline: var(--secondary) 2px solid;
+}
 .form:hover {
 	box-shadow: var(--box-shadow-hover);
 }

@@ -78,6 +78,7 @@
 .options_container .option_label {
 	padding-left: 0.5rem;
 	font-size: 18px;
+	text-transform: capitalize;
 }
 .form > .step_nav_container {
 	width: 100%;

@@ -3,7 +3,7 @@ import { FormikHandlers } from "formik";
 export interface FormValues {
 	name: string;
 	description: string;
-	category: string;
+	category?: any;
 	addresses: AddressValues[];
 	contacts: ContactValues[];
 }
@@ -68,11 +68,17 @@ export interface RadioProps {
 	name: string;
 	options: Category[];
 }
-
+enum CategoryValues {
+	"restaurant",
+	"shop",
+	"service",
+	"other",
+	null,
+	undefined,
+}
 export interface Category {
 	id: string;
-	value: string;
-	tabIndex?: number;
+	value: keyof typeof CategoryValues;
 }
 export interface ArrayProps {
 	data: MockFormData[];

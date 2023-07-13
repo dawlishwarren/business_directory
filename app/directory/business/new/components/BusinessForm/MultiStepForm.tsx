@@ -1,97 +1,184 @@
-'use client';
-import { ErrorMessage, Field, FormikBag } from 'formik';
-import { FormValues, Category } from './FormTypes';
-import * as Yup from 'yup';
+"use client";
+import { ErrorMessage, Field, FormikBag } from "formik";
+import {
+	FormValues,
+	Category,
+	AddressValues,
+	ContactValues,
+} from "./FormTypes";
+import * as Yup from "yup";
 
-import { Step } from './Stepper/Step';
-import { StepWrapper } from './Stepper/StepWrapper';
-import { ContactStep } from './Stepper/ContactStep';
-import { AddressStep } from './Stepper/AddressStep';
+import { Step } from "./Stepper/Step";
+import { StepWrapper } from "./Stepper/StepWrapper";
+import { ContactStep } from "./Stepper/ContactStep";
+import { AddressStep } from "./Stepper/AddressStep";
+import { v4 } from "uuid";
 
-import styles from './businessForm.module.css';
+import styles from "./businessForm.module.css";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { Database } from "@/types/supabase";
+import { UUID } from "crypto";
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-export const categoryOptions: Category[] = [
-	{ id: 'shop', value: 'Shop' },
-	{ id: 'service', value: 'Service' },
-	{ id: 'restaurant', value: 'Restaurant' },
-	{ id: 'other', value: 'Other' },
+const supabase = createClientComponentClient<Database>();
+const categoryOptions: Category[] = [
+	{ id: "shop", value: "shop" },
+	{ id: "service", value: "service" },
+	{ id: "restaurant", value: "restaurant" },
+	{ id: "other", value: "other" },
 ];
 export const MultiStepForm = () => {
+	// NEW - initialValues is an object with blank fields
+	// EDIT - Values passed as a prop into the form, and mapped to initial values
 	const initialValues: FormValues = {
-		name: '',
-		description: '',
-		category: 'Other',
+		name: "",
+		description: "",
+		category: "Other",
 		addresses: [
 			{
-				line_1: '',
-				line_2: '',
-				line_3: '',
-				line_4: '',
-				town: '',
-				postcode: '',
+				line_1: "",
+				line_2: "",
+				line_3: "",
+				line_4: "",
+				town: "",
+				postcode: "",
 			},
 		],
 		contacts: [
 			{
-				phone: '',
-				email: '',
-				website: '',
+				phone: "",
+				email: "",
+				website: "",
 			},
 		],
 	};
+
+	// Handle Submit
+	// NEW - creates a new id for the object, inputs data the tables
+	// EDIT - updates the data using the id
+	async function handleSubmit(values: FormValues) {
+		const business_id = v4();
+		console.log(values);
+
+		// Business Table Insert
+		try {
+			const { data, error } = await supabase
+				.from("business")
+				.insert({
+					business_id: business_id,
+					name: values.name,
+					category: values.category,
+					description: values.description,
+				})
+				.select();
+			if (data) console.log("Response: ", data);
+			if (error) throw error;
+
+			// Address Table Insert
+			interface Addresses extends AddressValues {
+				business_id: string;
+			}
+			let addresses: Addresses[] = [];
+
+			values.addresses.map((address, index) => {
+				addresses.push({
+					line_1: address.line_1,
+					line_2: address.line_2,
+					line_3: address.line_3,
+					line_4: address.line_4,
+					town: address.town,
+					postcode: address.postcode,
+					business_id: business_id,
+				});
+			});
+			const { data: addressData, error: addressError } = await supabase
+				.from("address")
+				.insert(addresses)
+				.select();
+			console.log("Address Data: ", addressData);
+
+			// Each contact should have an associated address.id,
+			const ids: number[] = [];
+			addressData?.map((address) => ids.push(address.id));
+
+			// Contact Table Insert
+			interface Contacts extends ContactValues {
+				address_id?: number;
+				business_id: string;
+			}
+			let contacts: Contacts[] = [];
+
+			values.contacts.map((contact, index) => {
+				contacts.push({
+					phone: contact.phone,
+					email: contact.email,
+					website: contact.website,
+					address_id: ids[index],
+					business_id: business_id,
+				});
+			});
+			console.log(ids[0]);
+			const { data: contactData, error: contactError } = await supabase
+				.from("contact")
+				.insert(contacts)
+				.select();
+			console.log("Contact Data:", contactData);
+
+			alert("Business added!");
+		} catch (error) {}
+	}
 	return (
 		<>
 			<h1 className={styles.form_title}>Signup</h1>
 			<StepWrapper
 				initialValues={initialValues}
 				onSubmit={async (values: FormValues) =>
-					sleep(300).then(() => console.log('Form submit', values))
+					sleep(300).then(() => handleSubmit(values))
 				}>
 				{/* Step 1: Basic Details */}
 				<Step
-					onSubmit={() => console.log('Step 1 Submitted')}
+					onSubmit={() => console.log("Step 1 Submitted")}
 					validationSchema={Yup.object({
-						name: Yup.string().required('Input Required!'),
-						description: Yup.string().required('Description Required!'),
+						name: Yup.string().required("Input Required!"),
+						description: Yup.string().required("Description Required!"),
 						category: Yup.mixed()
-							.required('Please select a category')
+							.required("Please select a category")
 							.oneOf(
-								['Shop', 'Service', 'Restaurant', 'Other'],
-								'Category required!'
+								["shop", "service", "restaurant", "other"],
+								"Category required!"
 							),
 					})}>
 					<h3 className={styles.step_title}>Basic Business Details</h3>
 					<div className={styles.field_container}>
-						<label htmlFor='name'>
+						<label htmlFor="name">
 							<h4>Business Name</h4>
 						</label>
 						<Field
 							className={styles.field}
-							component='input'
-							id='name'
-							name='name'
-							placeholder='Business Name'
-							type='text'
+							component="input"
+							id="name"
+							name="name"
+							placeholder="Business Name"
+							type="text"
 						/>
 						<ErrorMessage
 							className={`${styles.form_error} error`}
-							component='div'
-							name='name'
+							component="div"
+							name="name"
 						/>
 					</div>
 					<div className={styles.field_container}>
-						<label htmlFor='category'>
+						<label htmlFor="category">
 							<h4>Category</h4>
 						</label>
 						<div className={styles.options_container}>
 							{categoryOptions.map((option) => (
 								<div key={option.id}>
 									<Field
-										role='radio'
-										type='radio'
+										role="radio"
+										type="radio"
 										id={option.id}
 										value={option.value}
-										name='category'
+										name="category"
 										className={styles.option}
 									/>
 									<label htmlFor={option.id} className={styles.option_label}>
@@ -103,42 +190,42 @@ export const MultiStepForm = () => {
 
 						<ErrorMessage
 							className={`${styles.form_error} error`}
-							component='div'
-							name='category'
+							component="div"
+							name="category"
 						/>
 					</div>
 					<div className={styles.field_container}>
-						<label htmlFor='description'>
+						<label htmlFor="description">
 							<h4>Description</h4>
 						</label>
 						<Field
 							className={`${styles.field} ${styles.textarea}`}
-							component='textarea'
-							id='description'
-							name='description'
-							placeholder='Some details about your business'
-							type='text'
+							component="textarea"
+							id="description"
+							name="description"
+							placeholder="Some details about your business"
+							type="text"
 						/>
 						<ErrorMessage
 							className={`${styles.form_error} error`}
-							component='div'
-							name='description'
+							component="div"
+							name="description"
 						/>
 					</div>
 				</Step>
 				{/* End of Step 1: Basic Details */}
 				{/* Step 2: Address Details */}
 				<Step
-					onSubmit={() => console.log('Step 2 submitted')}
+					onSubmit={() => console.log("Step 2 submitted")}
 					validationSchema={Yup.object().shape({
 						addresses: Yup.array().of(
 							Yup.object({
-								line_1: Yup.string().required('Required'),
+								line_1: Yup.string().required("Required"),
 								line_2: Yup.string().notRequired(),
 								line_3: Yup.string().notRequired(),
 								line_4: Yup.string().notRequired(),
-								town: Yup.string().required('Required'),
-								postcode: Yup.string().required('Required'),
+								town: Yup.string().required("Required"),
+								postcode: Yup.string().required("Required"),
 							})
 						),
 					})}>
@@ -149,14 +236,14 @@ export const MultiStepForm = () => {
 				{/* End of Step 2: Address Details */}
 				{/* Step 3: Contact Details */}
 				<Step
-					onSubmit={() => console.log('Step 3 submitted')}
+					onSubmit={() => console.log("Step 3 submitted")}
 					validationSchema={Yup.object().shape({
 						contacts: Yup.array().of(
 							Yup.object({
 								email: Yup.string()
-									.email('Invalid email address')
-									.required('Required'),
-								phone: Yup.string().required('Required'),
+									.email("Invalid email address")
+									.required("Required"),
+								phone: Yup.string().required("Required"),
 								website: Yup.string().notRequired(),
 							})
 						),
