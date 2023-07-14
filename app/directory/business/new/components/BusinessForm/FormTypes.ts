@@ -1,9 +1,10 @@
-import { ReactElement } from 'react';
-import { FormikHandlers } from 'formik';
+import { ReactElement } from "react";
+import { FormikHandlers } from "formik";
 export interface FormValues {
 	name: string;
 	description: string;
 	category?: any;
+	business_id?: string;
 	address: AddressValues[];
 	contact: ContactValues[];
 }
@@ -16,17 +17,19 @@ export interface FieldInputProps<Value> {
 	/** Is the field checked? */
 	checked?: boolean;
 	/** Change event handler */
-	onChange: FormikHandlers['handleChange'];
+	onChange: FormikHandlers["handleChange"];
 	/** Blur event handler */
-	onBlur: FormikHandlers['handleBlur'];
+	onBlur: FormikHandlers["handleBlur"];
 }
 export interface AddressValues {
-	line_1: string;
+	business_id?: string;
+	id?: number;
+	line_1?: string;
 	line_2?: string;
 	line_3?: string;
 	line_4?: string;
-	town: string;
-	postcode: string;
+	postcode?: string;
+	town?: string;
 }
 export interface ContactValues {
 	phone: string;
@@ -69,10 +72,10 @@ export interface RadioProps {
 	options: Category[];
 }
 enum CategoryValues {
-	'restaurant',
-	'shop',
-	'service',
-	'other',
+	"restaurant",
+	"shop",
+	"service",
+	"other",
 	null,
 	undefined,
 }

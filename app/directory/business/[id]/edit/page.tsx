@@ -4,42 +4,63 @@
 // Passes that as an object of formData into the MultiStepForm
 
 // 			Types			//
-import { Database } from '@/types/supabase';
+import { Database } from "@/types/supabase";
 interface Params {
 	params: {
 		id: string;
 	};
 }
 // 			Helpers			//
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
-import { MultiStepForm } from '../../new/components/BusinessForm/MultiStepForm';
-import { FormValues } from '../../new/components/BusinessForm/FormTypes';
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { MultiStepForm } from "../../new/components/BusinessForm/MultiStepForm";
+import { FormValues } from "../../new/components/BusinessForm/FormTypes";
+import { cookies } from "next/headers";
 
-const supabase = createServerComponentClient<Database>({ cookies });
 export default async function Page({ params: { id } }: Params) {
+	const supabase = createServerComponentClient<Database>({ cookies });
 	const {
 		data: business,
 		error,
 		status,
 	} = await supabase
-		.from('business')
-		.select(`*, address (*), contact(*)`)
-		.eq('business_id', id);
+		.from("business")
+		.select(
+			`*,
+			address(
+				line_1,
+				line_2,
+				line_3,
+				line_4,
+				town,
+				postcode
+			), contact (
+				email,
+				website,
+				phone,
+				address_id
+			)
+			`
+		)
+		.eq("business_id", id);
 
 	if (error && status !== 406) {
 		throw error;
 	}
-	if (business !== null) {
-	}
-	const businessData = business![0]
-
-	}
+	const { name, category, description, address, contact, business_id } =
+		business![0];
+	const data: FormValues = {
+		name: name,
+		category: category,
+		description: description,
+		address: address,
+		contact: contact,
+		business_id: business_id,
+	};
 
 	return (
 		<main>
-			<div className='container'>
-				<MultiStepForm isNewForm={false} formData={business![0]} />
+			<div className="container">
+				<MultiStepForm isNewForm={false} formData={data} />
 			</div>
 		</main>
 	);

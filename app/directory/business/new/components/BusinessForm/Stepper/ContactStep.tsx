@@ -1,66 +1,66 @@
-import { FieldArray, useFormikContext } from 'formik';
-import { FormValues } from '../FormTypes';
-import styles from '../Accordion/accordionForm.module.css';
-import AccordionSection from '../Accordion/AccordionSection';
-import AccordionField from '../Accordion/AccordionField';
-import buttonStyles from '../../../../../../styles/utilities/button.module.css';
+import { FieldArray, useFormikContext } from "formik";
+import { FormValues } from "../FormTypes";
+import styles from "../Accordion/accordionForm.module.css";
+import AccordionSection from "../Accordion/AccordionSection";
+import AccordionField from "../Accordion/AccordionField";
+import buttonStyles from "../../../../../../styles/utilities/button.module.css";
 
 export function ContactStep() {
 	const { values } = useFormikContext<FormValues>();
 	if (values)
 		return (
 			<>
-				<FieldArray name='contacts'>
+				<FieldArray name="contact">
 					{({ remove, push }) => (
 						<>
-							<div id='accordionGroup' className={styles.accordion}>
-								{values.contacts.length > 0 &&
-									values.contacts.map((contact, index) => (
+							<div id="accordionGroup" className={styles.accordion}>
+								{values.contact.length > 0 &&
+									values.contact.map((contact, index) => (
 										<div key={index}>
 											<AccordionSection
-												ariaSection='contactSection'
+												ariaSection="contactSection"
 												id={`contact${index}id`}
 												title={`${
-													values.addresses.length >= values.contacts.length
-														? values.addresses[index].line_1
-														: ''
+													values.address.length >= values.contact.length
+														? values.address[index].line_1
+														: ""
 												}
 											Contact Details`}>
 												<div>
 													<fieldset className={styles.fieldset}>
 														<AccordionField
-															id={`contacts[${index}].phone`}
-															name={`contacts[${index}].phone`}
-															type='text'
-															label='Phone Number'
-															placeholder=''
+															id={`contact[${index}].phone`}
+															name={`contact[${index}].phone`}
+															type="text"
+															label="Phone Number"
+															placeholder=""
 															required={false}
 															index={index}
-															section='contact'
+															section="contact"
 														/>
 														<AccordionField
-															id={`contacts[${index}].email`}
-															name={`contacts[${index}].email`}
-															type='email'
-															label='Email'
-															placeholder=''
+															id={`contact[${index}].email`}
+															name={`contact[${index}].email`}
+															type="email"
+															label="Email"
+															placeholder=""
 															index={index}
 															required={false}
-															section='contact'
+															section="contact"
 														/>
 														<AccordionField
-															id={`contacts[${index}].website`}
-															name={`contacts[${index}].website`}
-															type='website'
-															label='Website'
-															placeholder=''
+															id={`contact[${index}].website`}
+															name={`contact[${index}].website`}
+															type="website"
+															label="Website"
+															placeholder=""
 															index={index}
 															required={false}
-															section='contact'
+															section="contact"
 														/>
 													</fieldset>
 													<button
-														type='button'
+														type="button"
 														className={`${styles.accordion_remove_button} ${buttonStyles.button_medium}`}
 														onClick={() => remove(index)}>
 														Remove Contact
@@ -73,17 +73,15 @@ export function ContactStep() {
 
 							<button
 								className={`${styles.accordion_add_button} ${buttonStyles.button_large}`}
-								type='button'
+								type="button"
 								disabled={
-									values.addresses.length > values.contacts.length
-										? false
-										: true
+									values.address.length > values.contact.length ? false : true
 								}
 								onClick={() =>
 									push({
-										phone: '',
-										email: '',
-										website: '',
+										phone: "",
+										email: "",
+										website: "",
 									})
 								}>
 								Add contact details
