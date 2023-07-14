@@ -7,7 +7,6 @@ import ThemeChanger from './ThemeChanger/ThemeChanger';
 
 export default function Header() {
 	const pathname = usePathname();
-	console.log(pathname);
 	return (
 		<header className={styles.header}>
 			<nav className={styles.nav}>
