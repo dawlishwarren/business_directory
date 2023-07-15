@@ -1,5 +1,5 @@
-import AuthForm from "./auth-form";
-import { Login } from "./login";
+// import AuthForm from './auth-form';
+import { Login } from './Login';
 
 export default function Page() {
 	return (

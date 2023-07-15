@@ -4,17 +4,18 @@
 // Passes that as an object of formData into the MultiStepForm
 
 // 			Types			//
-import { Database } from "@/types/supabase";
+import { Database } from '@/types/supabase';
 interface Params {
 	params: {
 		id: string;
 	};
 }
 // 			Helpers			//
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { MultiStepForm } from "../../new/components/BusinessForm/MultiStepForm";
-import { FormValues } from "../../new/components/BusinessForm/FormTypes";
-import { cookies } from "next/headers";
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { MultiStepForm } from '../../components/BusinessForm/MultiStepForm';
+import { FormValues } from '../../components/BusinessForm/FormTypes';
+import { cookies } from 'next/headers';
+import Breadcrumb from '@/app/components/Breadcrumb/Breadcrumb';
 
 export default async function Page({ params: { id } }: Params) {
 	const supabase = createServerComponentClient<Database>({ cookies });
@@ -23,7 +24,7 @@ export default async function Page({ params: { id } }: Params) {
 		error,
 		status,
 	} = await supabase
-		.from("business")
+		.from('business')
 		.select(
 			`*,
 			address(
@@ -41,7 +42,7 @@ export default async function Page({ params: { id } }: Params) {
 			)
 			`
 		)
-		.eq("business_id", id);
+		.eq('business_id', id);
 
 	if (error && status !== 406) {
 		throw error;
@@ -58,7 +59,14 @@ export default async function Page({ params: { id } }: Params) {
 
 	return (
 		<main>
-			<div className="container">
+			<Breadcrumb
+				items={[
+					{ label: 'Directory', path: '/directory' },
+					{ label: `${name}`, path: `/directory/business/${id}` },
+					{ label: 'Edit', path: `/directory/business/${id}/edit` },
+				]}
+			/>
+			<div className='container'>
 				<MultiStepForm isNewForm={false} formData={data} />
 			</div>
 		</main>

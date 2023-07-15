@@ -1,0 +1,10 @@
+.content_container {
+	display: grid;
+	min-height: calc(100vh - (var(--header-height) + var(--footer-height)));
+	grid-template-rows: 1fr 1fr;
+}
+.business_name_container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
