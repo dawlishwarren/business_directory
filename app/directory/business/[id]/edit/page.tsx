@@ -46,15 +46,14 @@ export default async function Page({ params: { id } }: Params) {
 	if (error && status !== 406) {
 		throw error;
 	}
-	const { name, category, description, address, contact, business_id } =
-		business![0];
+	const { name, category, description, address, contact } = business![0];
 	const data: FormValues = {
 		name: name,
 		category: category,
 		description: description,
 		address: address,
 		contact: contact,
-		business_id: business_id,
+		business_id: id,
 	};
 
 	return (

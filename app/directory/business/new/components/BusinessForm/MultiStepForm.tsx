@@ -130,7 +130,7 @@ export const MultiStepForm = ({ isNewForm, formData }: Props) => {
 
 			// EDIT - updates the data using the id
 		} else if (!isNewForm) {
-			const { business_id, name, description, category }: FormValues = formData;
+			const { business_id, name, description, category }: FormValues = values;
 			try {
 				const { error: businessError } = await supabase
 					.from("business")
@@ -160,6 +160,7 @@ export const MultiStepForm = ({ isNewForm, formData }: Props) => {
 					.upsert(addresses)
 					.eq("business_id", business_id);
 				if (addressError) console.log(addressError);
+				alert("Business Updated");
 			} catch (error) {
 				console.error(error);
 			}
