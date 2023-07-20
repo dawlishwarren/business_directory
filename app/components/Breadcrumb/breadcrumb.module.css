@@ -1,0 +1,34 @@
+.container {
+	margin: var(--breadcrumb-margin);
+}
+.label {
+	position: relative;
+	display: inline-block;
+	background-clip: text;
+	background: linear-gradient(
+		to right,
+		var(--secondary) 0%,
+		var(--secondary) 50%,
+		var(--primary-variant) 50%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-size: 200% 100%;
+	background-position: 100%;
+	text-decoration: underline 2px transparent;
+	text-underline-offset: 3px;
+	transition: all 375ms ease-in-out;
+	border-radius: calc(var(--border-radius) / 2);
+
+	/* transition: text-decoration 375ms ease-in-out; */
+}
+.label:hover {
+	background-position: 0 100%;
+	text-decoration: underline 2px var(--primary);
+}
+.label:focus {
+	transition: border-radius none;
+	outline: 2px solid var(--primary);
+	outline-offset: 2px;
+	border-radius: calc(var(--border-radius) / 2);
+}

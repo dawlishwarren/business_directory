@@ -1,4 +1,4 @@
-import styles from "./card.module.css";
+import styles from "../../page.module.css";
 import logo from "../../../../public/Profile_avatar_placeholder_large.png";
 import Image from "next/image";
 export default function SkeletonCard() {

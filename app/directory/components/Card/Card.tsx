@@ -1,6 +1,6 @@
 import { UUID } from "crypto";
 import Link from "next/link";
-import styles from "./card.module.css";
+import styles from "../../page.module.css";
 import Image from "next/image";
 import placeholderLogo from "../../../../public/Profile_avatar_placeholder_large.png";
 
@@ -37,8 +37,7 @@ export default function Card({ business }: { business: Data }) {
 			</div>
 			<div className={styles.card_name}>
 				<h6>
-					<b></b>
-					{name}
+					<b>{name}</b>
 				</h6>
 			</div>
 		</Link>
