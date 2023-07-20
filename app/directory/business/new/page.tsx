@@ -1,6 +1,6 @@
 'use client';
-import { FormValues } from './components/BusinessForm/FormTypes';
-import { MultiStepForm } from './components/BusinessForm/MultiStepForm';
+import { FormValues } from '../components/BusinessForm/FormTypes';
+import { MultiStepForm } from '../components/BusinessForm/MultiStepForm';
 
 export default function Page() {
 	const formData: FormValues = {
