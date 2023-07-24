@@ -3,6 +3,8 @@
 import { useReducer } from "react";
 import Card from "../Card/Card";
 import styles from "../../page.module.css";
+import buttonStyles from "../../../styles/utilities/button.module.css";
+import gradientStyles from "../../../styles/utilities/gradients.module.css";
 
 interface Business {
 	business_id: string;
@@ -83,33 +85,41 @@ export default function Directory({ data }: Props) {
 	}
 
 	return (
-		<section>
+		<>
 			<div className="container">
-				<div className="buttons">
-					<button onClick={sortByName} className="button_medium">
-						Sort By Name
-					</button>
-					<button onClick={sortByNameReverse} className="button_medium">
-						Sort By Name Reverse
-					</button>
-					<h6>Filter by:</h6>
-					<select
-						name="category"
-						onChange={filterByCategory}
-						className={styles.filter_button}
-						defaultValue="none">
-						<option value="restaurant">Restaurant</option>
-						<option value="shop">Shop</option>
-						<option value="service">Service</option>
-						<option value="none">No Filter</option>
-					</select>
-				</div>
-				<div className={styles.business_grid}>
-					{state.data.map((business: Business) => (
-						<Card key={business.business_id} business={business} />
-					))}
+				<div className={styles.buttons_container}>
+					<h6>Sort by:</h6>
+					<div className={styles.buttons}>
+						<button onClick={sortByName} className={buttonStyles.button_large}>
+							Name A-Z
+						</button>
+						<button
+							onClick={sortByNameReverse}
+							className={buttonStyles.button_large}>
+							Name Z-A
+						</button>
+					</div>
+					<div>
+						<h6>Filter by:</h6>
+						<select
+							name="category"
+							onChange={filterByCategory}
+							className={styles.filter_button}
+							defaultValue="none">
+							<option value="restaurant">Restaurant</option>
+							<option value="shop">Shop</option>
+							<option value="service">Service</option>
+							<option value="none">No Filter</option>
+						</select>
+					</div>
 				</div>
 			</div>
-		</section>
+
+			<div className={styles.business_grid}>
+				{state.data.map((business: Business) => (
+					<Card key={business.business_id} business={business} />
+				))}
+			</div>
+		</>
 	);
 }

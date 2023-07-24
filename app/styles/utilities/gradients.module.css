@@ -1,0 +1,22 @@
+.title_text_ltr {
+	background: linear-gradient(
+		to right,
+		var(--primary) 7.45%,
+		var(--primary-variant) 94.12%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+}
+.title_text_rtl {
+	background: linear-gradient(
+		to right,
+		var(--primary) 7.45%,
+		var(--primary-variant) 94.12%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+}

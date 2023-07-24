@@ -8,6 +8,7 @@
 	--box-shadow: 2px 4px 12px var(--shadow);
 	--box-shadow-hover: 2px 4px 16px var(--shadow-hover);
 	--breadcrumb-margin: 3rem;
+	--outline: 2px solid var(--primary);
 
 	/***Colour Variables***/
 	/* Colors */

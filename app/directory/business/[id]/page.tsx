@@ -2,6 +2,7 @@ import { Database } from "@/types/supabase";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import styles from "./page.module.css";
+import gradientStyles from "../../../styles/utilities/gradients.module.css";
 import Link from "next/link";
 import Breadcrumb from "@/app/components/Breadcrumb/Breadcrumb";
 export default async function Page({
@@ -51,7 +52,7 @@ export default async function Page({
 					<div className={`${styles.row} ${styles.title}`}>
 						<div className={styles.column}>
 							<div className={styles.title_container}>
-								<h1>{name}</h1>
+								<h1 className={gradientStyles.title_text_ltr}>{name}</h1>
 								<p className="overline">{category}</p>
 							</div>
 						</div>

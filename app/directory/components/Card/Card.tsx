@@ -15,8 +15,9 @@ export default function Card({ business }: { business: Data }) {
 	const { name, category, description, business_id } = business;
 	return (
 		<Link className={styles.card} href={`/directory/business/${business_id}`}>
-			<div className={styles.logo_container}>
-				{/* {logo ? (
+			<div className={styles.card_content}>
+				<div className={styles.card_content_image}>
+					{/* {logo ? (
 					<Image
 						src={logo}
 						alt="Business Logo"
@@ -24,21 +25,22 @@ export default function Card({ business }: { business: Data }) {
 						style={{ objectFit: "contain" }}
 					/>
 				) : ( */}
-				<Image
-					src={placeholderLogo}
-					alt="Placeholder Business Logo"
-					width={100}
-					style={{ objectFit: "contain" }}
-				/>
-				{/* )} */}
-			</div>
-			<div className={styles.card_overline}>
-				<p className="overline">{category}</p>
-			</div>
-			<div className={styles.card_name}>
-				<h6>
-					<b>{name}</b>
-				</h6>
+					<Image
+						src={placeholderLogo}
+						alt="Placeholder Business Logo"
+						width={100}
+						style={{ objectFit: "contain" }}
+					/>
+					{/* )} */}
+				</div>
+				<div className={styles.card_content_info}>
+					<p className={`${styles.card_content_info_category} overline`}>
+						{category}
+					</p>
+					<h6 className={styles.card_content_info_name}>
+						<b>{name}</b>
+					</h6>
+				</div>
 			</div>
 		</Link>
 	);
