@@ -1,9 +1,13 @@
-import { useFormikContext, FieldArray, ErrorMessage } from 'formik';
-import { FormValues } from '../FormTypes';
+// Packages/Dependencies
+import { useFormikContext, FieldArray } from 'formik';
+// Components
 import AccordionSection from '../Accordion/AccordionSection';
 import AccordionField from '../Accordion/AccordionField';
+// Styles
 import styles from '../Accordion/accordionForm.module.css';
 import buttonStyles from '../../../../../styles/utilities/button.module.css';
+// Types
+import { FormValues } from '../../../../../../types/FormTypes';
 
 export function AddressStep() {
 	const { values } = useFormikContext<FormValues>();

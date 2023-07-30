@@ -1,6 +1,7 @@
-'use client';
-import { FormValues } from '../components/BusinessForm/FormTypes';
-import { MultiStepForm } from '../components/BusinessForm/MultiStepForm';
+// Components
+import { BusinessForm } from '../components/BusinessForm/BusinessForm';
+// Types
+import { FormValues } from '../../../../types/FormTypes';
 
 export default function Page() {
 	const formData: FormValues = {
@@ -28,7 +29,7 @@ export default function Page() {
 	return (
 		<main>
 			<div className='container'>
-				<MultiStepForm isNewForm={true} formData={formData} />
+				<BusinessForm isNewForm={true} formData={formData} />
 			</div>
 		</main>
 	);

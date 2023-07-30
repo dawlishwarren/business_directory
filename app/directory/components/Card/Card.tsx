@@ -1,12 +1,14 @@
-import { UUID } from "crypto";
-import Link from "next/link";
-import styles from "./card.module.css";
-import Image from "next/image";
-import placeholderLogo from "../../../../public/Profile_avatar_placeholder_large.png";
-
+// Packages/Dependencies
+import Link from 'next/link';
+import Image from 'next/image';
+// Components
+import placeholderLogo from '../../../../public/Profile_avatar_placeholder_large.png';
+// Styles
+import styles from './card.module.css';
+// Types
 interface Data {
 	business_id: string;
-	category: "restaurant" | "shop" | "service" | "other" | null;
+	category: 'restaurant' | 'shop' | 'service' | 'other' | null;
 	description: string | null;
 	name: string;
 }
@@ -26,14 +28,14 @@ export default function Card({ business }: { business: Data }) {
 				) : ( */}
 				<Image
 					src={placeholderLogo}
-					alt="Placeholder Business Logo"
+					alt='Placeholder Business Logo'
 					width={100}
-					style={{ objectFit: "contain" }}
+					style={{ objectFit: 'contain' }}
 				/>
 				{/* )} */}
 			</div>
 			<div className={styles.card_overline}>
-				<p className="overline">{category}</p>
+				<p className='overline'>{category}</p>
 			</div>
 			<div className={styles.card_name}>
 				<h6>

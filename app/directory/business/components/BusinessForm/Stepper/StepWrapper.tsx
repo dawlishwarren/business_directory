@@ -1,15 +1,19 @@
+// Packages/Dependencies
 import React, { ReactNode, useState } from 'react';
-import { FormValues } from '../FormTypes';
-import { Form, Formik, FormikBag, FormikProps, FormikValues } from 'formik';
+import { ObjectSchema } from 'yup';
+// Components
+import { Form, Formik } from 'formik';
+// Styles
 import styles from '../businessForm.module.css';
 import buttonStyles from '../../../../../styles/utilities/button.module.css';
-import { ObjectSchema } from 'yup';
-
+// Types
+import { FormValues } from '../../../../../../types/FormTypes';
 interface StepWrapper {
 	children: ReactNode;
 	initialValues: FormValues;
 	onSubmit: any;
 }
+
 export function StepWrapper({
 	children,
 	initialValues,

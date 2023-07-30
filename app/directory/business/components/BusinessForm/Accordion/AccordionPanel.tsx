@@ -1,5 +1,5 @@
 import styles from './accordionForm.module.css';
-import { PanelProps } from '../FormTypes';
+import { PanelProps } from '../../../../../../types/FormTypes';
 
 const AccordionPanel = ({ id, ariaLabel, children, hidden }: PanelProps) => {
 	return (

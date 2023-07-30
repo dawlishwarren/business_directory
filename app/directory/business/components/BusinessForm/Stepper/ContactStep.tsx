@@ -1,9 +1,13 @@
+// Packages/Dependencies
 import { FieldArray, useFormikContext } from 'formik';
-import { FormValues } from '../FormTypes';
-import styles from '../Accordion/accordionForm.module.css';
+// Components
 import AccordionSection from '../Accordion/AccordionSection';
 import AccordionField from '../Accordion/AccordionField';
+// Styles
+import styles from '../Accordion/accordionForm.module.css';
 import buttonStyles from '../../../../../styles/utilities/button.module.css';
+// Types
+import { FormValues } from '../../../../../../types/FormTypes';
 
 export function ContactStep() {
 	const { values } = useFormikContext<FormValues>();

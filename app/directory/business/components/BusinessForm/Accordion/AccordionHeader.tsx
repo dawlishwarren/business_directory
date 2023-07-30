@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './accordionForm.module.css';
-import { HeaderProps } from '../FormTypes';
+import { HeaderProps } from '../../../../../../types/FormTypes';
 
 const AccordionHeader = ({ id, ariaSection, title, onClick }: HeaderProps) => {
 	return (

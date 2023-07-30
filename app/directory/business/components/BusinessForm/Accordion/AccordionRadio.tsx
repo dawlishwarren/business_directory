@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './accordionForm.module.css';
 import { Field } from 'formik';
-import { RadioProps } from '../FormTypes';
+import { RadioProps } from '../../../../../../types/FormTypes';
 
 const AccordionRadio = ({ id, ariaLabel, options, name }: RadioProps) => {
 	return (

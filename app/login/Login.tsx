@@ -1,17 +1,19 @@
-"use client";
-
-import { Database } from "@/types/supabase";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+'use client';
+// Packages/Dependencies
+import { Database } from '@/types/supabase';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+// Components
+// Styles
 
 export function Login() {
 	const supabase = createClientComponentClient<Database>();
 	const router = useRouter();
 
 	// State
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 
 	const handleSignUp = async () => {
 		await supabase.auth.signUp({
@@ -37,13 +39,13 @@ export function Login() {
 	return (
 		<div>
 			<input
-				name="email"
+				name='email'
 				onChange={(e) => setEmail(e.target.value)}
 				value={email}
 			/>
 			<input
-				type="password"
-				name="password"
+				type='password'
+				name='password'
 				onChange={(e) => setPassword(e.target.value)}
 				value={password}
 			/>

@@ -1,23 +1,20 @@
-/////// Edit Page ///////
-// Page takes the business id as params from the Dynamic Segment
-// Uses id to query the database for a business with that id.
-// Passes that as an object of formData into the MultiStepForm
-
-// 			Types			//
-import { Database } from '@/types/supabase';
-interface Params {
-	params: {
-		id: string;
-	};
-}
-// 			Helpers			//
+// Packages/Dependencies
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { MultiStepForm } from '../../components/BusinessForm/MultiStepForm';
-import { FormValues } from '../../components/BusinessForm/FormTypes';
 import { cookies } from 'next/headers';
-import Breadcrumb from '@/app/components/Breadcrumb/Breadcrumb';
+// Components
+import Breadcrumb from '../../../../components/Breadcrumb/Breadcrumb';
+import { BusinessForm } from '../../components/BusinessForm/BusinessForm';
+// Types
+import { Database } from '@/types/supabase';
+import { FormValues } from '../../../../../types/FormTypes';
 
-export default async function Page({ params: { id } }: Params) {
+// 1. Page takes the business id as params from the Dynamic Segment
+export default async function Page({
+	params: { id },
+}: {
+	params: { id: string };
+}) {
+	// 2. Uses the id to query the database for a business with that id.
 	const supabase = createServerComponentClient<Database>({ cookies });
 	const {
 		data: business,
@@ -67,7 +64,8 @@ export default async function Page({ params: { id } }: Params) {
 				]}
 			/>
 			<div className='container'>
-				<MultiStepForm isNewForm={false} formData={data} />
+				{/* 3. Passes the response as an object of formData into the MultiStepForm */}
+				<BusinessForm isNewForm={false} formData={data} />
 			</div>
 		</main>
 	);
