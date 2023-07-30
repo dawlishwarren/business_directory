@@ -3,7 +3,7 @@ import Image from 'next/image';
 // Components
 import logo from '../../../../public/Profile_avatar_placeholder_large.png';
 // Styles
-import styles from './card.module.css';
+import styles from '../../page.module.css';
 
 // UI Skeleton used before pageload as a suspense fallback
 export default function SkeletonCard() {

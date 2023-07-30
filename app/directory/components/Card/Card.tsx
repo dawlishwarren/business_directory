@@ -1,7 +1,7 @@
 // Packages/Dependencies
 import Link from 'next/link';
 // Components
-import styles from './card.module.css';
+import styles from '../../page.module.css';
 // Styles
 import Image from 'next/image';
 import placeholderLogo from '../../../../public/Profile_avatar_placeholder_large.png';

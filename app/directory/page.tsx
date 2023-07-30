@@ -4,6 +4,9 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 // Components
 import Directory from './components/Directory/Directory';
+// Styles
+import styles from './page.module.css';
+import gradientStyles from '../styles/utilities/gradients.module.css';
 
 export default async function Page() {
 	const supabase = createServerComponentClient<Database>({ cookies });
