@@ -38,17 +38,17 @@
 	text-align: center;
 	cursor: pointer;
 	color: var(--on-background-medium);
-	transition: all 300ms ease-in-out;
+	transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
 }
 .button_small:focus,
 .button_medium:focus,
 .button_large:focus {
-	outline: 3px solid var(--primary);
+	outline: 2px solid var(--primary);
 }
 .button_small::after,
 .button_medium::after,
 .button_large::after {
-	content: '';
+	content: "";
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -57,7 +57,7 @@
 	border-radius: var(--border-radius);
 	box-shadow: var(--box-shadow-hover);
 	opacity: 0;
-	transition: opacity 200ms ease-in-out;
+	transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
 }
 .button_small:hover::after,
 .button_medium:hover::after,

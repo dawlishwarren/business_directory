@@ -1,14 +1,162 @@
 .business_grid {
-	--grid-template: repeat(3, minmax(0, 1fr));
-	padding-block: 5rem;
+	--grid-template: repeat(4, minmax(0, 1fr));
+	--business-grid-gap: 20px;
 	display: grid;
-	gap: 0.75rem;
+	height: auto;
+	margin-block: 5rem;
 	min-height: calc(100vh - (var(--header-height) + var(--footer-height)));
-	padding-inline: 2.5rem;
 }
 @media (min-width: 960px) {
+	.directory_container {
+		max-width: 80rem;
+		display: block;
+		margin: 0 auto;
+	}
+	.directory_container h1 {
+		text-align: center;
+	}
+	.buttons_container {
+		flex-direction: row;
+		justify-content: center;
+		width: 100%;
+	}
+	.buttons_container > * {
+		margin-bottom: 2.5rem;
+	}
+	.buttons_container .buttons {
+		display: flex;
+		gap: 1rem;
+	}
+	.buttons_container > div {
+		width: 100%;
+	}
+	.buttons_container > div:last-child {
+		padding-right: 1rem;
+	}
 	.business_grid {
+		position: relative;
 		grid-template-columns: var(--grid-template);
 		grid-template-rows: auto;
+		gap: var(--business-grid-gap);
 	}
+	.filter_button {
+		display: flex;
+		position: relative;
+		align-items: center;
+		justify-content: center;
+		letter-spacing: 1.25px;
+		text-align-last: center;
+		width: 50%;
+		padding: 12.5px;
+		margin-block: 25px;
+		border-radius: var(--border-radius);
+		border: 2px solid transparent;
+		transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
+		background-color: var(--background);
+		background-image: linear-gradient(var(--background), var(--background)),
+			linear-gradient(
+				calc(-15deg),
+				var(--primary) 0,
+				var(--primary-variant) 20%,
+				rgba(121, 40, 20, 0) 80%
+			);
+		background-origin: border-box;
+		background-clip: padding-box, border-box;
+	}
+	.filter_button:focus {
+		border-radius: var(--border-radius) var(--border-radius) 0 0;
+		outline: 2px solid var(--primary);
+	}
+	.filter_button > option {
+		font-size: medium;
+	}
+}
+
+/* Card Borders and Styles */
+.card {
+	--card-grid-gap: 0.5rem;
+	position: relative;
+	width: 300px;
+	aspect-ratio: 1 / 1;
+	color: var(--on-surface-medium);
+	border-radius: var(--border-radius);
+	box-shadow: var(--box-shadow);
+	transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
+	background: var(--surface);
+}
+.card:hover {
+	box-shadow: var(--box-shadow-hover);
+	color: var(--primary);
+}
+.card:focus {
+	outline: 3px solid var(--primary);
+}
+.card_content {
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	position: relative;
+	overflow: hidden;
+	background-color: var(--surface);
+	padding: 2rem;
+	border-radius: var(--border-radius);
+}
+.card_content_image {
+	width: 100%;
+	min-height: 230px;
+	padding-top: 1rem;
+	padding-bottom: 0;
+	margin: 0 auto;
+}
+.card_content_image > img {
+	display: block;
+	width: auto;
+	height: 230px;
+	margin: 0 auto;
+	border-radius: var(--border-radius);
+}
+.card_content_info {
+	display: flex;
+	flex-direction: column;
+	height: 70px;
+	padding-top: 1rem;
+}
+.card_content_info_category {
+	color: var(--primary);
+}
+/* BORDERS */
+/* First first and second child get a border ::after pseudo */
+.logo_container,
+.skeleton_logo_container {
+}
+.card_overline,
+.skeleton_overline {
+	margin: 0 auto;
+}
+.card_name,
+.skeleton_name {
+}
+.skeleton_overline,
+.skeleton_name {
+	background-color: var(--shadow);
+}
+.skeleton_overline {
+}
+.card_overline > p {
+	text-align: right;
+	color: var(--secondary);
+}
+.card_name,
+.card_overline,
+.logo_container {
+	width: 100%;
+}
+.logo_container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.card_name > h6 {
+	padding-top: var(--card-grid-gap);
+	text-align: center;
 }

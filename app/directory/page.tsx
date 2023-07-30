@@ -13,7 +13,13 @@ export default async function Page() {
 	}
 	return (
 		<main>
-			<Directory data={businesses} />
+			{' '}
+			<section>
+				<div className={styles.directory_container}>
+					<h1 className={gradientStyles.title_text_rtl}>Purple Pages</h1>
+					<Directory data={businesses} />
+				</div>
+			</section>
 		</main>
 	);
 }

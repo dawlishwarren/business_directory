@@ -7,6 +7,8 @@
 	--footer-height: 100px;
 	--box-shadow: 2px 4px 12px var(--shadow);
 	--box-shadow-hover: 2px 4px 16px var(--shadow-hover);
+	--breadcrumb-margin: 3rem;
+	--outline: 2px solid var(--primary);
 
 	/***Colour Variables***/
 	/* Colors */
@@ -39,7 +41,7 @@
 	--on-error: rgba(253, 253, 253, 1);
 }
 /* Dark Mode Colour Variables */
-[data-theme='dark'] {
+[data-theme="dark"] {
 	/* Colors */
 	--primary: rgba(180, 117, 201, 1);
 	--primary-variant: rgba(134, 114, 214, 1);
@@ -232,7 +234,7 @@ footer {
 }
 footer::before {
 	position: absolute;
-	content: '';
+	content: "";
 	height: 3px;
 	top: -3px;
 	width: 100%;

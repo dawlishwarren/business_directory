@@ -5,6 +5,7 @@ import EmailForm from './components/EmailForm/EmailForm';
 import GradientRotation from './components/GradientRotation/GradientRotation';
 import PhoneImage from './components/PhoneImage';
 // Styles
+import gradientStyles from './styles/utilities/gradients.module.css';
 import styles from './page.module.css';
 import buttonStyles from './styles/utilities/button.module.css';
 
@@ -17,7 +18,10 @@ export default function Home() {
 					<div className={`${styles.hero_container} container`}>
 						<div className={styles.heading_container}>
 							<h1 className={`${styles.heading} high`}>
-								Your Local Community, in the <strong>palm of your hands</strong>
+								Your Local Community, in the{' '}
+								<strong className={gradientStyles.title_text_ltr}>
+									palm of your hands
+								</strong>
 							</h1>
 						</div>
 						<div className={styles.buttons_container}>

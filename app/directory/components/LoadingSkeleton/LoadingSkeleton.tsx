@@ -2,7 +2,6 @@
 import SkeletonCard from '../Card/SkeletonCard';
 // Styles
 import styles from '../../page.module.css';
-
 export default function LoadingSkeleton() {
 	return (
 		<main>

@@ -1,10 +1,65 @@
-.content_container {
-	display: grid;
-	min-height: calc(100vh - (var(--header-height) + var(--footer-height)));
-	grid-template-rows: 1fr 1fr;
-}
-.business_name_container {
+.row {
 	display: flex;
-	justify-content: flex-start;
-	align-items: center;
+	flex-wrap: wrap;
+	min-height: calc((100vh - (var(--header-height) + var(--footer-height))) / 2);
+}
+.row_no_wrap {
+	display: flex;
+	flex-wrap: nowrap;
+}
+.column {
+	flex: none;
+	width: 50%;
+}
+.title {
+	padding-top: 120px;
+	padding-bottom: 20px;
+	margin-left: -20px;
+	margin-right: -20px;
+	line-height: max(48px, min(5vw, 72px));
+}
+.description {
+	margin-left: 16.67%;
+	width: 50%;
+	line-height: 1.6;
+}
+.details {
+	width: 16.67%;
+	margin-left: auto;
+}
+.address_container {
+	padding-bottom: 50px;
+}
+.address_container > * {
+	margin-bottom: 10px;
+}
+.address_name,
+.website_link {
+	text-align: center;
+	width: 100%;
+}
+.website_link {
+	padding-top: 20px;
+	position: relative;
+	display: inline-block;
+	background-clip: text;
+	background: linear-gradient(
+		to right,
+		var(--secondary) 0%,
+		var(--secondary) 50%,
+		var(--primary-variant) 50%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-size: 200% 100%;
+	background-position: 100%;
+	text-decoration: underline 3px transparent;
+	text-underline-offset: 4px;
+	transition: all 375ms ease-in-out;
+}
+.website_link:hover,
+.website_link:focus {
+	background-position: 0 100%;
+
+	text-decoration: underline 3px var(--primary);
 }
