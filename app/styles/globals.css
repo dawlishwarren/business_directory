@@ -23,6 +23,7 @@
 	--shadow: rgb(0 0 0 / 8%);
 	--shadow-hover: rgb(0 0 0 / 16%);
 	--error: rgba(250, 36, 12, 0.94);
+	--edit: rgb(255, 173, 59);
 	/* On Colors */
 	--on-primary: rgba(0, 0, 0);
 	--on-primary-high: rgba(0, 0, 0);
@@ -39,9 +40,11 @@
 	--on-surface-medium: rgba(26, 26, 26, 0.6);
 	--on-surface-disabled: rgba(26, 26, 26, 0.38);
 	--on-error: rgba(253, 253, 253, 1);
+	--on-edit: rgba(0, 0, 0);
+	--on-edit-hover: rgba(253, 253, 253, 1);
 }
 /* Dark Mode Colour Variables */
-[data-theme="dark"] {
+[data-theme='dark'] {
 	/* Colors */
 	--primary: rgba(180, 117, 201, 1);
 	--primary-variant: rgba(134, 114, 214, 1);
@@ -52,6 +55,7 @@
 	--shadow: rgb(180 117 201 / 4%);
 	--shadow-hover: rgb(253 253 253 / 16%);
 	--error: rgba(250, 36, 12, 0.94);
+	--edit: rgb(255, 173, 59);
 
 	/* On Colors */
 	--on-primary-high: rgba(29, 30, 31, 0.87);
@@ -234,7 +238,7 @@ footer {
 }
 footer::before {
 	position: absolute;
-	content: "";
+	content: '';
 	height: 3px;
 	top: -3px;
 	width: 100%;

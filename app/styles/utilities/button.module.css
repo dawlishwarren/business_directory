@@ -48,7 +48,7 @@
 .button_small::after,
 .button_medium::after,
 .button_large::after {
-	content: "";
+	content: '';
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -68,4 +68,16 @@
 .button_medium:hover,
 .button_large:hover {
 	color: var(--on-background-high);
+}
+
+.button_edit {
+	background: var(--edit);
+	color: var(--on-edit);
+}
+.button_delete {
+	background: var(--error);
+	color: var(--on-error);
+}
+.button_edit:hover {
+	color: var(--on-edit-hover);
 }

@@ -149,7 +149,9 @@ export const BusinessForm = ({ isNewForm, formData }: Props) => {
 	}
 	return (
 		<>
-			<h1 className={styles.form_title}>Signup</h1>
+			<h1 className={styles.form_title}>
+				{isNewForm ? 'New Business' : `Edit ${initialValues.name} Details`}
+			</h1>
 			<StepWrapper
 				initialValues={initialValues}
 				onSubmit={async (values: FormValues) => handleSubmit(values)}>
