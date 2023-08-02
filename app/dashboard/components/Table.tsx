@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Pagination from "./Pagination";
 interface Props {
 	data:
@@ -14,7 +14,6 @@ interface Props {
 }
 
 export default function Table({ data }: Props) {
-	const [numberOfPages, setNumberOfPages] = useState<number>(0);
 	const [resultsPerPage, setResultsPerPage] = useState<number>(2);
 	const [currentPage, setCurrentPage] = useState<number>(1);
 	const onPageChange = (page: number) => {
@@ -32,7 +31,7 @@ export default function Table({ data }: Props) {
 				</div>
 			))}
 			<Pagination
-				data={data}
+				length={data ? data.length : 0}
 				resultsPerPage={resultsPerPage}
 				currentPage={currentPage}
 				onPageChange={onPageChange}

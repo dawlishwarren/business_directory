@@ -1,30 +1,28 @@
-import { useEffect } from "react";
-import TableButton from "./TableButton";
 import styles from "./table.module.css";
 interface Props {
-	data:
-		| {
-				business_id: string;
-				category: "restaurant" | "shop" | "service" | "other";
-				description: string;
-				name: string;
-		  }[]
-		| null;
+	length: number;
 	resultsPerPage: number;
 	currentPage: number;
 	onPageChange: (page: number) => void;
 }
+
 export default function Pagination({
-	data,
+	length,
 	resultsPerPage,
 	currentPage,
 	onPageChange,
 }: Props) {
-	const numberOfPages = data ? Math.ceil(data.length / resultsPerPage) : 0;
+	const numberOfPages = Math.ceil(length / resultsPerPage);
 	const pagesArray = Array.from({ length: numberOfPages }, (_, i) => i + 1);
 
 	return (
 		<div>
+			<h6>
+				{length} Results loaded. Page {currentPage} of {numberOfPages}{" "}
+				{numberOfPages === 0 ? "page" : "pages"} with {resultsPerPage} results
+				per page.
+			</h6>
+
 			<ul>
 				{pagesArray?.map((page) => (
 					<li
