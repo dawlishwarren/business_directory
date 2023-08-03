@@ -1,13 +1,15 @@
 // Packages/Dependencies
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 // Components
-import Breadcrumb from '../../../../components/Breadcrumb/Breadcrumb';
-import { BusinessForm } from '../../components/BusinessForm/BusinessForm';
+import Breadcrumb from "../../../../components/Breadcrumb/Breadcrumb";
+import { BusinessForm } from "../../components/BusinessForm/BusinessForm";
 // Types
-import { Database } from '@/types/supabase';
-import { FormValues } from '../../../../../types/FormTypes';
-
+import { Database } from "@/types/supabase";
+import { FormValues } from "../../../../../types/FormTypes";
+import Link from "next/link";
+// Styles
+import buttonStyles from "../../../../styles/utilities/button.module.css";
 // 1. Page takes the business id as params from the Dynamic Segment
 export default async function Page({
 	params: { id },
@@ -21,7 +23,7 @@ export default async function Page({
 		error,
 		status,
 	} = await supabase
-		.from('business')
+		.from("business")
 		.select(
 			`*,
 			address(
@@ -39,7 +41,7 @@ export default async function Page({
 			)
 			`
 		)
-		.eq('business_id', id);
+		.eq("business_id", id);
 
 	if (error && status !== 406) {
 		throw error;
@@ -58,12 +60,19 @@ export default async function Page({
 		<main>
 			<Breadcrumb
 				items={[
-					{ label: 'Directory', path: '/directory' },
+					{ label: "Directory", path: "/directory" },
 					{ label: `${name}`, path: `/directory/business/${id}` },
-					{ label: 'Edit', path: `/directory/business/${id}/edit` },
+					{ label: "Edit", path: `/directory/business/${id}/edit` },
 				]}
 			/>
-			<div className='container'>
+			<Link href="/dashboard">
+				<button
+					className={buttonStyles.button_small}
+					style={{ marginLeft: "3rem" }}>
+					&#8592; Back to Dashboard
+				</button>
+			</Link>
+			<div className="container">
 				{/* 3. Passes the response as an object of formData into the MultiStepForm */}
 				<BusinessForm isNewForm={false} formData={data} />
 			</div>

@@ -35,7 +35,7 @@ button.button {
 	outline: none;
 }
 .accordion_add_button {
-	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	border-radius: 0 0 var(--border-radius) var(--border-radius) !important;
 }
 .accordion_trigger,
 .accordion_add_button {
@@ -101,7 +101,7 @@ button.button {
 .accordion_panel::before,
 .accordion_panel::after {
 	position: absolute;
-	content: '';
+	content: "";
 	bottom: 0;
 	height: 100%;
 	width: 3px;

@@ -1,0 +1,80 @@
+.table {
+	--table-padding: 1rem;
+	/* border: 2px solid white; */
+	min-width: var(--max-width);
+	border-collapse: collapse;
+	margin-block: 5rem;
+}
+.table_header {
+	background-color: var(--background);
+	position: relative;
+}
+.table_header::after {
+	position: absolute;
+	content: "";
+	bottom: 0;
+	left: 0;
+	height: 3px;
+	width: 100%;
+	background-image: linear-gradient(
+			90deg,
+			rgba(0, 0, 0, 0) 0%,
+			rgba(0, 0, 0, 0.0199673) 0.01%,
+			rgba(0, 0, 0, 0.0416667) 99.99%,
+			rgba(0, 0, 0, 0) 100%
+		),
+		linear-gradient(
+			90deg,
+			var(--background) 1.04%,
+			var(--primary-variant) 19.79%,
+			var(--secondary) 50%,
+			var(--primary-variant) 79.69%,
+			var(--background) 98.96%
+		);
+}
+.table_th {
+	text-align: left;
+	padding-block: var(--table-padding);
+}
+.table tr .table_name_column {
+	width: 50%;
+}
+.table tr .table_button_column {
+	width: 25%;
+}
+
+.pagination {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	list-style: none;
+}
+
+.pageLink {
+	cursor: pointer;
+}
+
+.pageItem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 2rem;
+	height: 2rem;
+	border: 1px solid #eaeaea;
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+/* pagination page item when active */
+.pageItemActive {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 2rem;
+	height: 2rem;
+	border: 1px solid #eaeaea;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	background-color: var(--primary);
+	color: var(--on-primary-high);
+}
