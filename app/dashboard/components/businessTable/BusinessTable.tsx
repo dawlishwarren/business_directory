@@ -1,23 +1,32 @@
-"use client";
+'use client';
+// Packages/Dependencies
+import { useState } from 'react';
+import Link from 'next/link';
 
-import { useState } from "react";
+// Components
+import BusinessTablePaginator from './BusinessTablePaginator';
+import BusinessTableButton from './BusinessTableButton';
 
-import TablePaginator from "./TablePaginator";
-import TableButton from "./TableButton";
-import styles from "./table.module.css";
+// Styles
+import styles from './businessTable.module.css';
+import buttonStyles from '../../../styles/utilities/button.module.css';
+
+// Types
 interface Props {
 	data:
 		| {
 				business_id: string;
-				category: "restaurant" | "shop" | "service" | "other";
+				category: 'restaurant' | 'shop' | 'service' | 'other';
 				description: string;
 				name: string;
 		  }[]
 		| null;
 }
 
-export default function Table({ data }: Props) {
-	const [resultsPerPage, setResultsPerPage] = useState<number>(2);
+export default function BusinessTable({ data }: Props) {
+	const [resultsPerPage, setResultsPerPage] = useState<number>(
+		data ? data.length : 1
+	);
 	const [currentPage, setCurrentPage] = useState<number>(1);
 	const onPageChange = (page: number) => {
 		setCurrentPage(page);
@@ -30,7 +39,7 @@ export default function Table({ data }: Props) {
 		? data?.slice(startIndex, startIndex + resultsPerPage)
 		: [];
 	return (
-		<section>
+		<>
 			<table className={styles.table}>
 				<tbody>
 					<tr className={styles.table_header}>
@@ -42,27 +51,30 @@ export default function Table({ data }: Props) {
 						<tr key={business.business_id}>
 							<td className={styles.table_name_column}>{business.name}</td>
 							<td className={styles.table_button_column}>
-								<TableButton id={business.business_id} type="edit" />
+								<BusinessTableButton id={business.business_id} type='edit' />
 							</td>
 							<td className={styles.table_button_column}>
-								<TableButton id={business.business_id} type="delete" />
+								<BusinessTableButton id={business.business_id} type='delete' />
 							</td>
 						</tr>
 					))}
 				</tbody>
-				<tfoot>
-					<tr>
-						<th>Add a new business</th>
-					</tr>
-				</tfoot>
+				<tfoot className={styles.table_footer} />
 			</table>
-			<TablePaginator
-				length={data ? data.length : 0}
+			<div className={styles.add_button_box}>
+				<Link
+					href='/directory/business/new'
+					className={buttonStyles.button_medium}>
+					Add a new business
+				</Link>
+			</div>
+			<BusinessTablePaginator
+				dataLength={data ? data.length : 0}
 				resultsPerPage={resultsPerPage}
 				currentPage={currentPage}
 				onPageChange={onPageChange}
 				onResultsChange={onResultsChange}
 			/>
-		</section>
+		</>
 	);
 }

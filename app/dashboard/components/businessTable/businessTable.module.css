@@ -1,17 +1,18 @@
 .table {
 	--table-padding: 1rem;
 	/* border: 2px solid white; */
-	min-width: var(--max-width);
 	border-collapse: collapse;
-	margin-block: 5rem;
+	margin-top: 2.5rem;
 }
-.table_header {
+.table_header,
+.table_footer {
 	background-color: var(--background);
 	position: relative;
 }
-.table_header::after {
+.table_header::after,
+.table_footer::after {
 	position: absolute;
-	content: "";
+	content: '';
 	bottom: 0;
 	left: 0;
 	height: 3px;
@@ -32,6 +33,14 @@
 			var(--background) 98.96%
 		);
 }
+
+.table_header::after {
+	bottom: 0;
+}
+.table_footer::after {
+	top: 0;
+}
+
 .table_th {
 	text-align: left;
 	padding-block: var(--table-padding);
@@ -41,6 +50,11 @@
 }
 .table tr .table_button_column {
 	width: 25%;
+}
+.add_button_box {
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .pagination {
@@ -77,4 +91,8 @@
 	cursor: pointer;
 	background-color: var(--primary);
 	color: var(--on-primary-high);
+}
+
+.pagination_options {
+	display: none;
 }

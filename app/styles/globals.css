@@ -40,6 +40,7 @@
 	--on-surface-medium: rgba(26, 26, 26, 0.6);
 	--on-surface-disabled: rgba(26, 26, 26, 0.38);
 	--on-error: rgba(253, 253, 253, 1);
+	--on-error-hover: rgba(0, 0, 0);
 	--on-edit: rgba(0, 0, 0);
 	--on-edit-hover: rgba(253, 253, 253, 1);
 }
@@ -187,6 +188,9 @@ h6,
 	font-size: 11px;
 	letter-spacing: 1.5px;
 	text-transform: uppercase;
+}
+.centered {
+	text-align: center;
 }
 
 /***End of Typography***/

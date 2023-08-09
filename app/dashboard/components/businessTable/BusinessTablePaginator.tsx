@@ -1,27 +1,29 @@
-import styles from "./table.module.css";
+// Styles
+import styles from './table.module.css';
+// Types
 interface Props {
-	length: number;
+	dataLength: number;
 	resultsPerPage: number;
 	currentPage: number;
 	onPageChange: (page: number) => void;
 	onResultsChange: (number: number) => void;
 }
 
-export default function TablePaginator({
-	length,
+export default function BusinessTablePaginator({
+	dataLength,
 	resultsPerPage,
 	currentPage,
 	onPageChange,
 	onResultsChange,
 }: Props) {
-	const numberOfPages = Math.ceil(length / resultsPerPage);
+	const numberOfPages = Math.ceil(dataLength / resultsPerPage);
 	const pagesArray = Array.from({ length: numberOfPages }, (_, i) => i + 1);
 
 	return (
-		<>
+		<div className={styles.pagination_options}>
 			<p>
-				{length} Results loaded. Page {currentPage} of {numberOfPages}{" "}
-				{numberOfPages === 0 ? "page" : "pages"} with {resultsPerPage} results
+				{dataLength} Results loaded. Page {currentPage} of {numberOfPages}{' '}
+				{numberOfPages === 0 ? 'page' : 'pages'} with {resultsPerPage} results
 				per page.
 			</p>
 			<h6>Set results per page:</h6>
@@ -50,6 +52,6 @@ export default function TablePaginator({
 					</li>
 				))}
 			</ul>
-		</>
+		</div>
 	);
 }
