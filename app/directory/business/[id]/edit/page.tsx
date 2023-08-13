@@ -1,15 +1,17 @@
 // Packages/Dependencies
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 // Components
+import Link from "next/link";
 import Breadcrumb from "../../../../components/Breadcrumb/Breadcrumb";
 import { BusinessForm } from "../../components/BusinessForm/BusinessForm";
+// Styles
+import buttonStyles from "../../../../styles/utilities/button.module.css";
 // Types
 import { Database } from "@/types/supabase";
 import { FormValues } from "../../../../../types/FormTypes";
-import Link from "next/link";
-// Styles
-import buttonStyles from "../../../../styles/utilities/button.module.css";
+
 // 1. Page takes the business id as params from the Dynamic Segment
 export default async function Page({
 	params: { id },
@@ -18,6 +20,12 @@ export default async function Page({
 }) {
 	// 2. Uses the id to query the database for a business with that id.
 	const supabase = createServerComponentClient<Database>({ cookies });
+	const {
+		data: { session },
+	} = await supabase.auth.getSession();
+	if (!session) {
+		redirect("/unauthenticated");
+	}
 	const {
 		data: business,
 		error,

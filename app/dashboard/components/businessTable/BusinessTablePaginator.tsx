@@ -1,5 +1,5 @@
 // Styles
-import styles from './table.module.css';
+import styles from "./businessTable.module.css";
 // Types
 interface Props {
 	dataLength: number;
@@ -22,8 +22,8 @@ export default function BusinessTablePaginator({
 	return (
 		<div className={styles.pagination_options}>
 			<p>
-				{dataLength} Results loaded. Page {currentPage} of {numberOfPages}{' '}
-				{numberOfPages === 0 ? 'page' : 'pages'} with {resultsPerPage} results
+				{dataLength} Results loaded. Page {currentPage} of {numberOfPages}{" "}
+				{numberOfPages === 0 ? "page" : "pages"} with {resultsPerPage} results
 				per page.
 			</p>
 			<h6>Set results per page:</h6>

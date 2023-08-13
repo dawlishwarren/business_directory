@@ -1,21 +1,22 @@
+// Packages/Dependencies
 import { Database } from "@/types/supabase";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import styles from "./page.module.css";
-import gradientStyles from "../../../styles/utilities/gradients.module.css";
+// Components
 import Link from "next/link";
 import Breadcrumb from "@/app/components/Breadcrumb/Breadcrumb";
+// Styles
+import styles from "./page.module.css";
+import gradientStyles from "../../../styles/utilities/gradients.module.css";
+
 export default async function Page({
 	params: { id },
 }: {
 	params: { id: string };
 }) {
 	const supabase = createServerComponentClient<Database>({ cookies });
-	const {
-		data: business,
-		error,
-		status,
-	} = await supabase
+
+	const { data: business } = await supabase
 		.from("business")
 		.select(
 			`*,
