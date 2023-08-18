@@ -10,12 +10,12 @@ import styles from './page.module.css';
 
 export default async function Page() {
 	const supabase = createServerComponentClient<Database>({ cookies });
-	// const {
-	// 	data: { session },
-	// } = await supabase.auth.getSession();
-	// if (!session) {
-	// 	redirect('/auth/unauthenticated');
-	// }
+	const {
+		data: { session },
+	} = await supabase.auth.getSession();
+	if (!session) {
+		redirect('/auth/unauthenticated');
+	}
 
 	const { data: businessData, error } = await supabase
 		.from('business')

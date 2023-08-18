@@ -6,7 +6,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 // Styles
 import './styles/globals.css';
-import LoginToggle from './auth/loginToggle';
+import Login from './auth/components/Login';
 
 export const metadata = {
 	title: 'Purple Pages',
@@ -36,7 +36,7 @@ export default async function RootLayout({
 			<body>
 				<Providers>
 					<Header>
-						<LoginToggle />
+						<Login />
 					</Header>
 					{children}
 					<Footer />
