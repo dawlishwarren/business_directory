@@ -1,0 +1,26 @@
+h5.disabled {
+	text-decoration: underline 3px var(--primary);
+	text-underline-offset: 4px;
+	cursor: auto;
+	color: var(--on-background-high);
+}
+h5.nav_item {
+	position: relative;
+	display: inline-block;
+	background-clip: text;
+	background: linear-gradient(
+		to right,
+		var(--on-background-high) 0%,
+		var(--on-background-high) 50%,
+		var(--on-background-medium) 50%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-size: 200% 100%;
+	background-position: 100%;
+	transition: background-position 275ms ease;
+	cursor: pointer;
+}
+h5.nav_item:hover {
+	background-position: 0 100%;
+}
