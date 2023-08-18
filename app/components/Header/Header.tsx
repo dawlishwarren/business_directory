@@ -1,11 +1,19 @@
 'use client';
 
+// Packages/Dependencies
 import Link from 'next/link';
-import styles from './header.module.css';
 import { usePathname } from 'next/navigation';
+// Components
+import LoginToggle from '@/app/auth/loginToggle';
 import ThemeChanger from './ThemeChanger/ThemeChanger';
+// Styles
+import styles from './header.module.css';
 
-export default function Header() {
+export default async function Header({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
 	const pathname = usePathname();
 	return (
 		<header className={styles.header}>
@@ -23,14 +31,7 @@ export default function Header() {
 						Directory
 					</h5>
 				</Link>
-				<Link href='/login'>
-					<h5
-						className={
-							pathname == '/login' ? styles.disabled : styles.nav_link
-						}>
-						Login
-					</h5>
-				</Link>
+				{children}
 			</nav>
 			<div className={styles.theme_changer_container}>
 				<ThemeChanger />

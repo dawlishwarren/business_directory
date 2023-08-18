@@ -9,7 +9,7 @@ import BusinessTableButton from './BusinessTableButton';
 
 // Styles
 import styles from './businessTable.module.css';
-import buttonStyles from '../../../styles/utilities/button.module.css';
+import buttonStyles from '../../../../styles/utilities/button.module.css';
 
 // Types
 interface Props {

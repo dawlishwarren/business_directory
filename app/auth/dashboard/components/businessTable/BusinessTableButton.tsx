@@ -2,7 +2,8 @@
 // Packages/Dependencies
 import Link from 'next/link';
 // Styles
-import buttonStyles from '../../../styles/utilities/button.module.css';
+import buttonStyles from '../../../../styles/utilities/button.module.css';
+
 // Types
 interface Props {
 	id: string;
