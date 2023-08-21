@@ -28,7 +28,7 @@
 	background-color: var(--background);
 	background-image: linear-gradient(var(--background), var(--background)),
 		linear-gradient(
-			calc(-15deg),
+			0deg,
 			var(--primary) 0,
 			var(--primary-variant) 20%,
 			rgba(121, 40, 20, 0) 80%
@@ -48,7 +48,7 @@
 .button_small::after,
 .button_medium::after,
 .button_large::after {
-	content: '';
+	content: "";
 	position: absolute;
 	top: 0;
 	left: 0;

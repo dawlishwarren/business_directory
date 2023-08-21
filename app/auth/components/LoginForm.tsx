@@ -4,7 +4,10 @@
 import { Session } from "@supabase/supabase-js";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+// Components
+import Link from "next/link";
 // Styles
 import navStyles from "@/app/styles/utilities/navItem.module.css";
 import styles from "./loginForm.module.css";
@@ -13,6 +16,7 @@ import buttonStyles from "@/app/styles/utilities/button.module.css";
 export default function LoginForm({ session }: { session: Session | null }) {
 	const supabase = createClientComponentClient();
 	const router = useRouter();
+	const pathname = usePathname();
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -32,20 +36,34 @@ export default function LoginForm({ session }: { session: Session | null }) {
 			password,
 		});
 		router.refresh();
+		router.push("/auth/dashboard");
 	};
 
 	return (
 		<>
 			{session ? (
-				<a onClick={handleSignOut}>
-					<h5 className={navStyles.nav_item}>Log Out</h5>
-				</a>
+				<>
+					<Link href="/auth/dashboard">
+						<h5
+							className={
+								pathname == "/auth/dashboard"
+									? navStyles.disabled
+									: navStyles.nav_item
+							}>
+							Dashboard
+						</h5>
+					</Link>
+					<button onClick={handleSignOut} className={styles.nav_button}>
+						<h5 className={navStyles.nav_item}>Log Out</h5>
+					</button>
+				</>
 			) : (
 				<div className={styles.dropdown_parent}>
-					<a onClick={toggleHidden}>
+					<button onClick={toggleHidden} className={styles.nav_button}>
 						<h5 className={navStyles.nav_item}>Login</h5>
-					</a>
+					</button>
 					<div
+						aria-hidden={hidden ? "true" : "false"}
 						className={`${styles.dropdown_wrapper} ${
 							hidden ? styles.hidden : styles.active
 						}`}>
@@ -64,7 +82,7 @@ export default function LoginForm({ session }: { session: Session | null }) {
 								value={password}
 							/>
 							<button
-								className={buttonStyles.button_small}
+								className={`${buttonStyles.button_small} ${styles.submit}`}
 								type="submit"
 								onClick={handleSignIn}>
 								Log in

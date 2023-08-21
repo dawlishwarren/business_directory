@@ -2,9 +2,8 @@
 	width: 100%;
 	height: var(--header-height);
 	z-index: 10;
-
 	padding-inline: 50px;
-	display: grid;
+	display: flex;
 	grid-template-columns: 1fr 100px 1fr;
 	position: sticky;
 	top: -1px;
@@ -47,10 +46,6 @@
 	justify-content: flex-end !important;
 }
 
-/* .header > * > a:focus-within > h5 {
-	color: var(--tertiary);
-	-webkit-text-fill-color: inherit;
-} */
 nav.nav,
 .theme_changer_container,
 .login {
@@ -131,6 +126,9 @@ nav.nav,
 }
 
 @media (min-width: 480px) {
+	.header {
+		grid-template-columns: 1fr 100px 1fr;
+	}
 	.nav {
 		gap: 50px;
 	}
