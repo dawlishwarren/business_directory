@@ -1,12 +1,29 @@
 .dropdown_parent {
 	position: relative;
-	z-index: 10;
 }
 
-.login_dropdown {
-	display: flex;
-	background-color: red;
-	flex-direction: column;
+.dropdown_wrapper {
+	--dropdown-width: 300px;
 	position: absolute;
+	top: 50px;
 	right: 0;
+	height: fit-content;
+	padding: 2rem;
+	width: var(--dropdown-width);
+	z-index: 20;
+	border: 2px solid var(--primary);
+	border-radius: var(--border-radius);
+	background-color: var(--background);
+}
+
+.login_form {
+	display: flex;
+	z-index: 20;
+	flex-direction: column;
+}
+.hidden {
+	display: none;
+}
+.active {
+	display: block;
 }
