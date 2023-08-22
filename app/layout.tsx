@@ -3,10 +3,10 @@ import { Providers } from "./providers";
 import { inter, poppins } from "./fonts";
 // Components
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Login from "./auth/components/Login";
+import Footer from "./components/Footer/footer";
 // Styles
 import "./styles/globals.css";
-import Login from "./auth/components/Login";
 
 export const metadata = {
 	title: "Purple Pages",

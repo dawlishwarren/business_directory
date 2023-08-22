@@ -70,12 +70,14 @@ export default function LoginForm({ session }: { session: Session | null }) {
 						<div className={styles.login_form}>
 							<label htmlFor="loginEmail">Email</label>
 							<input
+								id="loginEmail"
 								name="loginEmail"
 								onChange={(e) => setEmail(e.target.value)}
 								value={email}
 							/>
 							<label htmlFor="loginPassword">Password</label>
 							<input
+								id="loginPassword"
 								type="password"
 								name="loginPassword"
 								onChange={(e) => setPassword(e.target.value)}
