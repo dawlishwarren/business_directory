@@ -6,7 +6,6 @@ h5.disabled {
 }
 h5.nav_item {
 	position: relative;
-	display: inline-block;
 	background-clip: text;
 	background: linear-gradient(
 		to right,
@@ -23,4 +22,19 @@ h5.nav_item {
 }
 h5.nav_item:hover {
 	background-position: 0 100%;
+}
+
+/* Mobile Visibility */
+.mobile_hidden,
+h5.nav_item {
+	display: none;
+}
+
+@media (min-width: 1024px) {
+	h5.nav_item {
+		display: inline-block;
+	}
+	.mobile_hidden {
+		display: initial;
+	}
 }

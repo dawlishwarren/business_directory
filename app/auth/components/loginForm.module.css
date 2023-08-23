@@ -4,9 +4,7 @@
 	display: none;
 	border: 0;
 }
-.disabled {
-	display: none;
-}
+
 .nav_button:focus-visible {
 	outline: 3px solid var(--primary-variant);
 	outline-offset: 3px;
@@ -39,7 +37,6 @@
 
 .login_form {
 	display: flex;
-	/* z-index: 20; */
 	flex-direction: column;
 }
 .login_form > input {

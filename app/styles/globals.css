@@ -45,7 +45,7 @@
 	--on-edit-hover: rgba(253, 253, 253, 1);
 }
 /* Dark Mode Colour Variables */
-[data-theme="dark"] {
+[data-theme='dark'] {
 	/* Colors */
 	--primary: rgba(180, 117, 201, 1);
 	--primary-variant: rgba(134, 114, 214, 1);
@@ -205,6 +205,7 @@ h6,
 html,
 body {
 	max-width: 100vw;
+	max-width: 100dvw;
 }
 
 a {
@@ -242,7 +243,7 @@ footer {
 }
 footer::before {
 	position: absolute;
-	content: "";
+	content: '';
 	height: 3px;
 	top: -3px;
 	width: 100%;

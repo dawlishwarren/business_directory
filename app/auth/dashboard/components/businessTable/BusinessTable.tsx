@@ -1,16 +1,13 @@
 'use client';
 // Packages/Dependencies
 import { useState } from 'react';
-import Link from 'next/link';
-
 // Components
+import Link from 'next/link';
 import BusinessTablePaginator from './BusinessTablePaginator';
 import BusinessTableButton from './BusinessTableButton';
-
 // Styles
 import styles from './businessTable.module.css';
 import buttonStyles from '../../../../styles/utilities/button.module.css';
-
 // Types
 interface Props {
 	data:

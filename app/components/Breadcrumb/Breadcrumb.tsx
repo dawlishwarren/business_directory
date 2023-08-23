@@ -1,6 +1,10 @@
-import Link from "next/link";
-import { ReactNode } from "react";
-import styles from "./breadcrumb.module.css";
+// Packages/Dependencies
+import { ReactNode } from 'react';
+// Components
+import Link from 'next/link';
+// Styles
+import styles from './breadcrumb.module.css';
+// Types
 export type CrumbItem = {
 	label: ReactNode;
 	path: string;
