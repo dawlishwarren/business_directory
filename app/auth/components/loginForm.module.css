@@ -16,6 +16,11 @@
 	position: relative;
 	display: none;
 }
+@media (min-width: 1024px) {
+	.dropdown_parent {
+		display: block;
+	}
+}
 
 .dropdown_wrapper {
 	--dropdown-width: 400px;

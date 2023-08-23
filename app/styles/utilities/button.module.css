@@ -2,12 +2,10 @@
 .button_small {
 	max-width: fit-content;
 	padding: 12.5px;
-	margin-block: 12.5px;
 }
 .button_medium {
 	width: 50%;
 	padding: 12.5px;
-	margin-block: 25px;
 }
 .button_large {
 	padding: 25px;
@@ -43,7 +41,7 @@
 .button_small:focus,
 .button_medium:focus,
 .button_large:focus {
-	outline: 2px solid var(--primary);
+	outline: 3px solid var(--primary);
 }
 .button_small::after,
 .button_medium::after,

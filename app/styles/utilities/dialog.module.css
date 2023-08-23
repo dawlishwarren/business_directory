@@ -1,0 +1,61 @@
+.dialog {
+	/* Sizing */
+	box-sizing: border-box;
+	padding: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-inline-size: min(90vw, 60ch);
+	max-block-size: min(80vh, 100%);
+	max-block-size: min(80dvb, 100%);
+	overflow: hidden;
+	margin: auto;
+	position: fixed;
+	overscroll-behavior: contain;
+
+	/* Borders & Colours */
+	border-radius: var(--border-radius);
+	border: 3px solid transparent;
+	background-image: linear-gradient(var(--form), var(--form)),
+		linear-gradient(
+			calc(var(--gradient-rotation)),
+			var(--secondary) 0,
+			var(--primary) 20%,
+			var(--primary-variant) 80%
+		);
+	background-origin: border-box;
+	background-clip: padding-box, border-box;
+	filter: drop-shadow(0 8px 30px 0, 0, 0, 0.24);
+	box-shadow: var(--box-shadow);
+	color: var(--on-surface-high);
+}
+dialog.dialog:not([open]) {
+	pointer-events: none;
+	opacity: 0;
+}
+.dialog_content {
+	--gap: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap);
+	overflow: hidden;
+}
+.options {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	gap: var(--gap);
+}
+.close_button_wrapper {
+	padding-block: 2rem;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.dialog::backdrop {
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	backdrop-filter: saturate(180%) blur(3px);
+}

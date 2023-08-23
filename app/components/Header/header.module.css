@@ -65,53 +65,6 @@
 .theme_changer > img {
 	transition: all 0.6s ease-in-out;
 }
-.theme_changer + dialog {
-	height: 50%;
-	top: 100px;
-	margin-block: 0;
-	border: 2px solid transparent;
-	border-radius: var(--border-radius);
-	color: var(--on-surface-high);
-	filter: drop-shadow(0 8px 30px 0, 0, 0, 0.24);
-	border: 3px solid transparent;
-	box-shadow: var(--box-shadow);
-	background-image: linear-gradient(var(--form), var(--form)),
-		linear-gradient(
-			calc(var(--gradient-rotation)),
-			var(--secondary) 0,
-			var(--primary) 20%,
-			var(--primary-variant) 80%
-		);
-	background-origin: border-box;
-	background-clip: padding-box, border-box;
-	overscroll-behavior: contain;
-}
-
-.theme_changer + dialog::backdrop {
-	width: 100%;
-	height: 100%;
-	opacity: 0.8;
-}
-.theme_changer + dialog > .dialog_content {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	height: 100%;
-}
-.theme_changer + dialog > .dialog_content .options {
-	margin-top: 2rem;
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-	width: 100%;
-	height: 100%;
-	padding-inline: 1rem;
-}
-
-.theme_changer + dialog > .dialog_content .options > * {
-	min-width: 100%;
-}
 
 /* Navigation */
 .navigation_links {
