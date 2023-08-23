@@ -1,6 +1,7 @@
 'use client';
-
+// Packages/Dependencies
 import { MouseEvent } from 'react';
+// Styles
 import styles from '../../page.module.css';
 
 export default function GradientRotation({

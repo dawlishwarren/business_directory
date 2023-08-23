@@ -1,9 +1,8 @@
 'use client';
-// Packages/Dependencies
+// Components
 import Link from 'next/link';
 // Styles
 import buttonStyles from '../../../../styles/utilities/button.module.css';
-
 // Types
 interface Props {
 	id: string;

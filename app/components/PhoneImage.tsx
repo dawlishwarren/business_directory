@@ -1,5 +1,7 @@
-import Image from 'next/image';
+// Packages/Dependencies
 import iPhone from '../../public/iPhone 14 Pro Max - Space Black - Portrait.png';
+// Components
+import Image from 'next/image';
 
 export default function PhoneImage() {
 	return (

@@ -1,8 +1,10 @@
 'use client';
-
+// Components
 import { Formik, FormikHelpers, Form, Field } from 'formik';
+// Styles
 import styles from './emailForm.module.css';
 import buttonStyles from '../../styles/utilities/button.module.css';
+// Types
 interface Values {
 	email: string;
 	message: string;

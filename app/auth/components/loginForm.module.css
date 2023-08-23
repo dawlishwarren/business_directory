@@ -1,8 +1,10 @@
 .nav_button {
 	padding: 0;
 	background: none;
+	display: none;
 	border: 0;
 }
+
 .nav_button:focus-visible {
 	outline: 3px solid var(--primary-variant);
 	outline-offset: 3px;
@@ -10,6 +12,12 @@
 
 .dropdown_parent {
 	position: relative;
+	display: none;
+}
+@media (min-width: 1024px) {
+	.dropdown_parent {
+		display: block;
+	}
 }
 
 .dropdown_wrapper {
@@ -29,7 +37,6 @@
 
 .login_form {
 	display: flex;
-	/* z-index: 20; */
 	flex-direction: column;
 }
 .login_form > input {
@@ -50,4 +57,11 @@
 .submit {
 	align-self: flex-end;
 	margin: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+	.nav_button,
+	.disabled {
+		display: block;
+	}
 }

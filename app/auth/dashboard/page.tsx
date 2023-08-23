@@ -1,5 +1,4 @@
 // Packages/Dependencies
-import { Database } from '@/types/supabase';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
@@ -7,6 +6,8 @@ import { redirect } from 'next/navigation';
 import BusinessTable from './components/businessTable/BusinessTable';
 // Styles
 import styles from './page.module.css';
+// Types
+import { Database } from '@/types/supabase';
 
 export default async function Page() {
 	const supabase = createServerComponentClient<Database>({ cookies });
