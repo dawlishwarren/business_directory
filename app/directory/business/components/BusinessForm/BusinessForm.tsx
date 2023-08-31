@@ -10,6 +10,7 @@ import { Step } from './Stepper/Step';
 import { StepWrapper } from './Stepper/StepWrapper';
 import { ContactStep } from './Stepper/ContactStep';
 import { AddressStep } from './Stepper/AddressStep';
+import LogoStep from './Stepper/LogoStep';
 // Styles
 import styles from './businessForm.module.css';
 // Types
@@ -270,6 +271,21 @@ export const BusinessForm = ({ isNewForm, formData }: Props) => {
 					<h3 className={styles.step_title}>Contact Information</h3>
 					<ContactStep />
 				</Step>
+				{/* End of Step 3: Contact Details */}
+				{/* Step 4: Business Logo */}
+				<Step
+					onSubmit={() => console.log('Step 4 submitted')}
+					validationSchema={Yup.object().shape({
+						logo: Yup.mixed().test(
+							'is-valid-size',
+							'Max allowed size is 100KB',
+							(value) => value && value.size <= 200000
+						),
+					})}>
+					<h3 className={styles.step_title}>Business Logo</h3>
+					<LogoStep />
+				</Step>
+				{/* End of Step 4: Business Logo */}
 			</StepWrapper>
 		</>
 	);

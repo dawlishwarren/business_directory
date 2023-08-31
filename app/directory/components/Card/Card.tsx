@@ -9,12 +9,11 @@ import placeholderLogo from '../../../../public/Profile_avatar_placeholder_large
 interface Data {
 	business_id: string;
 	category: 'restaurant' | 'shop' | 'service' | 'other' | null;
-	description: string | null;
 	name: string;
 }
 
 export default function Card({ business }: { business: Data }) {
-	const { name, category, description, business_id } = business;
+	const { name, category, business_id } = business;
 	return (
 		<Link className={styles.card} href={`/directory/business/${business_id}`}>
 			<div className={styles.card_content}>
