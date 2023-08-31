@@ -8,9 +8,11 @@ import BusinessTable from './components/businessTable/BusinessTable';
 import styles from './page.module.css';
 // Types
 import { Database } from '@/types/supabase';
+import Link from 'next/link';
 
 export default async function Page() {
 	const supabase = createServerComponentClient<Database>({ cookies });
+
 	const {
 		data: { session },
 	} = await supabase.auth.getSession();
@@ -22,6 +24,7 @@ export default async function Page() {
 		.from('business')
 		.select();
 	if (error) console.error(error);
+
 	return (
 		<main>
 			<div className='container'>
@@ -29,13 +32,17 @@ export default async function Page() {
 				<section id='businessTable' className={styles.business_table_section}>
 					<BusinessTable data={businessData} />
 				</section>
-				{/* <section id='admin' className={styles.admin_section}>
+				<section id='admin' className={styles.admin_section}>
 					<h6>Admin Details</h6>
 					<p>User: {session.user.email}</p>
 					{session.user.email !== undefined && (
-						<p>TODO: Add Update User page and link to</p>
+						<div>
+							<Link href='/auth/update-user'>
+								<p>Update details</p>
+							</Link>
+						</div>
 					)}
-				</section> */}
+				</section>
 			</div>
 		</main>
 	);
